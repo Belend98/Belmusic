@@ -1,0 +1,144 @@
+generator client {
+  provider   = "prisma-client-ts"
+  output     = "./generated"
+  engineType = "client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model artiste {
+  Id_artiste      Int           @id
+  Nom             String        @db.VarChar(50)
+  Pr_nom          String        @map("Prénom") @db.VarChar(50)
+  T_l_phone       String?       @map("Téléphone") @db.VarChar(15)
+  Email           String        @db.VarChar(50)
+  Id_type_artiste Int
+  type_artiste    type_artiste  @relation(fields: [Id_type_artiste], references: [Id_type_artiste], onDelete: NoAction, onUpdate: NoAction, map: "artiste_ibfk_1")
+  r_servation     r_servation[]
+
+  @@index([Id_type_artiste], map: "Id_type_artiste")
+}
+
+model composition_stack {
+  Id_stack      Int
+  id_equipement Int
+  default_stack default_stack @relation(fields: [Id_stack], references: [Id_stack], onDelete: NoAction, onUpdate: NoAction, map: "composition_stack_ibfk_1")
+
+  @@id([Id_stack, id_equipement])
+  @@index([id_equipement], map: "id_equipement")
+}
+
+model default_stack {
+  Id_stack          Int                 @id
+  Nom               String              @db.VarChar(50)
+  composition_stack composition_stack[]
+  r_servation       r_servation[]
+}
+
+model equipement {
+  id_equipement Int      @id
+  Nom           String   @db.VarChar(50)
+  prix_location Decimal? @db.Decimal(5, 2)
+}
+
+model facture {
+  Id_facture     Int         @id
+  Date_facture   DateTime    @db.Date
+  Montant        Decimal     @db.Decimal(10, 2)
+  Statut         Boolean
+  Id_r_servation Int         @unique(map: "Id_réservation") @map("Id_réservation")
+  r_servation    r_servation @relation(fields: [Id_r_servation], references: [Id_r_servation], onDelete: NoAction, onUpdate: NoAction, map: "facture_ibfk_1")
+  paiement       paiement?
+}
+
+model ing_nieur_son {
+  Id_Ing_       Int     @id @map("Id_Ingé")
+  Nom           String  @db.VarChar(50)
+  Email         String  @db.VarChar(50)
+  Disponibilit_ Boolean @map("Disponibilité")
+
+  @@map("ingénieur_son")
+}
+
+model paiement {
+  Id_paiement   Int      @id
+  Date_paiement DateTime @db.Date
+  mode_payement String?  @db.VarChar(50)
+  Id_facture    Int      @unique(map: "Id_facture")
+  facture       facture  @relation(fields: [Id_facture], references: [Id_facture], onDelete: NoAction, onUpdate: NoAction, map: "paiement_ibfk_1")
+}
+
+model reservation_equipement {
+  Id_r_servation Int         @map("Id_réservation")
+  id_equipement  Int
+  r_servation    r_servation @relation(fields: [Id_r_servation], references: [Id_r_servation], onDelete: NoAction, onUpdate: NoAction, map: "reservation_equipement_ibfk_1")
+
+  @@id([Id_r_servation, id_equipement])
+  @@index([id_equipement], map: "id_equipement")
+}
+
+model reservation_service {
+  Id_r_servation Int         @map("Id_réservation")
+  Id_service     Int
+  r_servation    r_servation @relation(fields: [Id_r_servation], references: [Id_r_servation], onDelete: NoAction, onUpdate: NoAction, map: "reservation_service_ibfk_1")
+  service        service     @relation(fields: [Id_service], references: [Id_service], onDelete: NoAction, onUpdate: NoAction, map: "reservation_service_ibfk_2")
+
+  @@id([Id_r_servation, Id_service])
+  @@index([Id_service], map: "Id_service")
+}
+
+model r_servation {
+  Id_r_servation         Int                      @id @map("Id_réservation")
+  Heure_d_but            DateTime                 @map("Heure_début") @db.Time(0)
+  Heure_fin              DateTime                 @db.Time(0)
+  Date_                  DateTime                 @db.Date
+  Etat                   Boolean?
+  Id_stack               Int
+  Id_artiste             Int
+  Id_studio              Int
+  facture                facture?
+  reservation_equipement reservation_equipement[]
+  reservation_service    reservation_service[]
+  default_stack          default_stack            @relation(fields: [Id_stack], references: [Id_stack], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_1")
+  artiste                artiste                  @relation(fields: [Id_artiste], references: [Id_artiste], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_2")
+  studio                 studio                   @relation(fields: [Id_studio], references: [Id_studio], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_3")
+
+  @@index([Id_artiste], map: "Id_artiste")
+  @@index([Id_stack], map: "Id_stack")
+  @@index([Id_studio], map: "Id_studio")
+  @@map("réservation")
+}
+
+model service {
+  Id_service          Int                   @id
+  nom_service         String?               @db.VarChar(50)
+  Tarif_              Decimal               @db.Decimal(7, 2)
+  reservation_service reservation_service[]
+}
+
+model studio {
+  Id_studio   Int           @id
+  Nom_studio  String        @db.VarChar(50)
+  Etat        Boolean
+  r_servation r_servation[]
+  studio_ing_ studio_ing_[]
+}
+
+model studio_ing_ {
+  Id_Ing_   Int    @map("Id_Ingé")
+  Id_studio Int
+  studio    studio @relation(fields: [Id_studio], references: [Id_studio], onDelete: NoAction, onUpdate: NoAction, map: "studio_ingé_ibfk_2")
+
+  @@id([Id_Ing_, Id_studio])
+  @@index([Id_studio], map: "Id_studio")
+  @@map("studio_ingé")
+}
+
+model type_artiste {
+  Id_type_artiste  Int       @id
+  nom_type_artiste String?   @db.VarChar(50)
+  artiste          artiste[]
+}
