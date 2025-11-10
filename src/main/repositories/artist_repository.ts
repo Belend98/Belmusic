@@ -53,13 +53,16 @@ export class ArtistRepository {
         await this.dbclient.artiste.update({
             where: {
                 Id_artiste: a.id_artist
-
-
-
             },
             data: {
+                Id_artiste: a.id_artist,
                 Nom: a.nom,
-                Pr_nom: a.prenom
+                Pr_nom: a.prenom,
+                Email: a.email,
+                T_l_phone: a.telephone,
+                Id_type_artiste: a.id_type_artist
+                
+
             }
 
         })

@@ -8,7 +8,8 @@ contextBridge.exposeInMainWorld('api', {
 }),
 
 contextBridge.exposeInMainWorld('api', {
-	createArtist: async (): Promise<any> =>{
+	createArtist: async (): Promise<void> =>{
 		return await ipcRenderer.invoke('artistRepository:createArtist')
 	}
 } )
+
