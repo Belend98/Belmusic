@@ -8,4 +8,8 @@ export function registerArtistRepo(){
     ipcMain.handle("artistRepository:getAllArtists", (e, a)=> {
         return artistRepository.getAllArtists();
     } )
+
+    ipcMain.handle("artistRepository:createArtist", (e, a: Artist) =>{
+        return artistRepository.createArtist(a);
+    })
 }

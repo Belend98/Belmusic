@@ -1,7 +1,8 @@
 export default interface Artist{
-    id_artist?: number;
-    Nom: string;
-    Prenom: string
-    Email: string;
+    id_artist: number;
+    nom: string;
+    prenom: string
+    email: string;
+    telephone: string
     id_type_artist: number
 }

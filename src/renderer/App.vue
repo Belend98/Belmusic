@@ -3,6 +3,14 @@
     <header class="hero">
       <h1>Studio Belmusic</h1>
       <p>Bienvenue au studio — réservez votre session.</p>
+      <div class="formulaire">
+        
+        <input type="text" name="Nom" placeholder="Nom">
+        <input type="text" name="Prenom" placeholder="Prenom">
+        <button>clique</button>
+        
+
+      </div>
     </header>
 
     <section class="artists">
@@ -14,8 +22,8 @@
       </div>
       <ul v-else>
         <li v-for="a in artists" :key="a.id_artist" class="artist-card">
-          <h3>{{ a.Nom }} <small v-if="a['Prénom']">{{ a['Prénom'] }}</small></h3>
-          <p>Email: {{ a.Email }}</p>
+          <h3>{{ a.nom }} <small v-if="a.prenom">{{ a.prenom}}</small></h3>
+          <p>Email: {{ a.email }}</p>
           <p>Type ID: {{ a.id_type_artist }}</p>
         </li>
       </ul>
@@ -24,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+import Artist from 'src/shared/artist'
 import { ref } from 'vue'
 
 const artists = ref<Array<any>>([])
@@ -38,9 +47,9 @@ async function toggleListArtists() {
   }
  
   try {
-    // call the preload-exposed API
+    
     const res = await window.api.getAllArtists()
-    artists.value = res || []
+    artists.value = res 
     showlist.value = true
 
   } catch (err) {
