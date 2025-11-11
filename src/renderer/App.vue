@@ -3,14 +3,6 @@
     <header class="hero">
       <h1>Studio Belmusic</h1>
       <p>Bienvenue au studio — réservez votre session.</p>
-      <div class="formulaire">
-        
-        <input type="text" name="Nom" placeholder="Nom">
-        <input type="text" name="Prenom" placeholder="Prenom">
-        <button>clique</button>
-        
-
-      </div>
     </header>
 
     <section class="artists">
@@ -32,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import Artist from 'src/shared/artist'
 import { ref } from 'vue'
 
 const artists = ref<Array<any>>([])
@@ -47,9 +38,9 @@ async function toggleListArtists() {
   }
  
   try {
-    
-    const res = await window.api.getAllArtists()
-    artists.value = res 
+    // call the preload-exposed API
+    const res = await window.api.artistService.getAllArtists();
+    artists.value = res || []
     showlist.value = true
 
   } catch (err) {

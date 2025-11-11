@@ -1,15 +1,13 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge} from 'electron'
+import { artistService } from './artistService'
+import IAllService from 'src/shared/Interface/IAllService'
 
 
-contextBridge.exposeInMainWorld('api', {
-	getAllArtists: async (): Promise<any[]> => {
-		return await ipcRenderer.invoke('artistRepository:getAllArtists')
-	},
-}),
 
 contextBridge.exposeInMainWorld('api', {
-	createArtist: async (): Promise<void> =>{
-		return await ipcRenderer.invoke('artistRepository:createArtist')
-	}
-} )
+	artistService : artistService(),
+
+} as IAllService)
+
+
 
