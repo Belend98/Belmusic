@@ -1,8 +1,7 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
 import dotenv from 'dotenv' ;
-import { ArtistRepository } from './repositories/artist_repository';
 import { registerArtistRepo } from './repositories/registerartistRepositories';
 
 
