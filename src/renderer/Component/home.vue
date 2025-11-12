@@ -4,14 +4,21 @@
             <div class="cta">
                 <h1>Bienvenue chez Belmusic</h1>
                 <p>Réservez votre créneau horaire en studio dès maintenant.</p>
-                <button class="reserve-btn">Réserver un créneau</button>
+                <button class="reserve-btn" v-on:click="handleclick">Réserver un créneau</button>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import img from '../image/image studio.png'
+
+const router = useRouter();
+const handleclick = () => {
+    router.push('/reservation');
+
+}
 
 </script>
 
@@ -32,7 +39,6 @@ import img from '../image/image studio.png'
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.35);
     padding: 2rem;
     box-sizing: border-box;
 }
@@ -65,11 +71,13 @@ import img from '../image/image studio.png'
     border: none;
     border-radius: 8px;
     font-weight: 600;
+    transition-duration: 1000ms;
     cursor: pointer;
 }
 
 .reserve-btn:hover {
-    background: #4338ca; /* indigo-700 */
+    background: #3427c6; /* indigo-700 */
+    border-radius:50px;
 }
 
 @media (max-width: 600px) {

@@ -1,0 +1,3 @@
+<template>
+    calendar works
+</template>
