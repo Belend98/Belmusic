@@ -3,7 +3,7 @@
     <header class="hero">
       <h1>Studio Belmusic</h1>
       <p>Bienvenue au studio — réservez votre session.</p>
-      <button @click="() => {router.push('/')}">Return to home</button>
+      <button @click="() => {router.push('/')}">Ajoute un utilisateur</button>
     </header>
 
     <section class="artists">
@@ -22,11 +22,15 @@
       </ul>
     </section>
   </div>
+  <createArtist/>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
+import createArtist from './createArtist.vue';
+
+
 
 const artists = ref<Array<any>>([])
 const loading = ref(true)

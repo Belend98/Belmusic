@@ -1,5 +1,5 @@
 <template>
-    <div class="reservation-simple">
+    <div class="reservation">
     <form v-on:submit.prevent="onSubmit">
             <div>
                 <label for="nom">Nom</label>
@@ -42,7 +42,7 @@ function onSubmit(): void {
 </script>
 
 <style scoped>
-.reservation-simple {
+.reservation {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -5,4 +5,5 @@ export default interface Artist{
     email: string;
     telephone: string
     id_type_artist: number
+    pseudo: string
 }

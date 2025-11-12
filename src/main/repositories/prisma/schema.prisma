@@ -12,10 +12,11 @@ datasource db {
 model artiste {
   Id_artiste      Int           @id
   Nom             String        @db.VarChar(50)
-  Pr_nom          String        @db.VarChar(50)
-  T_l_phone       String?       @db.VarChar(15)
+  Pr_nom          String        @map("Prénom") @db.VarChar(50)
+  T_l_phone       String?       @map("Téléphone") @db.VarChar(15)
   Email           String        @db.VarChar(50)
   Id_type_artiste Int
+  Pseudo          String?       @db.VarChar(50)
   type_artiste    type_artiste  @relation(fields: [Id_type_artiste], references: [Id_type_artiste], onDelete: NoAction, onUpdate: NoAction, map: "artiste_ibfk_1")
   r_servation     r_servation[]
 

@@ -42,6 +42,7 @@ export type ArtisteMinAggregateOutputType = {
   T_l_phone: string | null
   Email: string | null
   Id_type_artiste: number | null
+  Pseudo: string | null
 }
 
 export type ArtisteMaxAggregateOutputType = {
@@ -51,6 +52,7 @@ export type ArtisteMaxAggregateOutputType = {
   T_l_phone: string | null
   Email: string | null
   Id_type_artiste: number | null
+  Pseudo: string | null
 }
 
 export type ArtisteCountAggregateOutputType = {
@@ -60,6 +62,7 @@ export type ArtisteCountAggregateOutputType = {
   T_l_phone: number
   Email: number
   Id_type_artiste: number
+  Pseudo: number
   _all: number
 }
 
@@ -81,6 +84,7 @@ export type ArtisteMinAggregateInputType = {
   T_l_phone?: true
   Email?: true
   Id_type_artiste?: true
+  Pseudo?: true
 }
 
 export type ArtisteMaxAggregateInputType = {
@@ -90,6 +94,7 @@ export type ArtisteMaxAggregateInputType = {
   T_l_phone?: true
   Email?: true
   Id_type_artiste?: true
+  Pseudo?: true
 }
 
 export type ArtisteCountAggregateInputType = {
@@ -99,6 +104,7 @@ export type ArtisteCountAggregateInputType = {
   T_l_phone?: true
   Email?: true
   Id_type_artiste?: true
+  Pseudo?: true
   _all?: true
 }
 
@@ -195,6 +201,7 @@ export type ArtisteGroupByOutputType = {
   T_l_phone: string | null
   Email: string
   Id_type_artiste: number
+  Pseudo: string | null
   _count: ArtisteCountAggregateOutputType | null
   _avg: ArtisteAvgAggregateOutputType | null
   _sum: ArtisteSumAggregateOutputType | null
@@ -227,6 +234,7 @@ export type artisteWhereInput = {
   T_l_phone?: Prisma.StringNullableFilter<"artiste"> | string | null
   Email?: Prisma.StringFilter<"artiste"> | string
   Id_type_artiste?: Prisma.IntFilter<"artiste"> | number
+  Pseudo?: Prisma.StringNullableFilter<"artiste"> | string | null
   type_artiste?: Prisma.XOR<Prisma.Type_artisteScalarRelationFilter, Prisma.type_artisteWhereInput>
   r_servation?: Prisma.R_servationListRelationFilter
 }
@@ -238,6 +246,7 @@ export type artisteOrderByWithRelationInput = {
   T_l_phone?: Prisma.SortOrderInput | Prisma.SortOrder
   Email?: Prisma.SortOrder
   Id_type_artiste?: Prisma.SortOrder
+  Pseudo?: Prisma.SortOrderInput | Prisma.SortOrder
   type_artiste?: Prisma.type_artisteOrderByWithRelationInput
   r_servation?: Prisma.r_servationOrderByRelationAggregateInput
   _relevance?: Prisma.artisteOrderByRelevanceInput
@@ -253,6 +262,7 @@ export type artisteWhereUniqueInput = Prisma.AtLeast<{
   T_l_phone?: Prisma.StringNullableFilter<"artiste"> | string | null
   Email?: Prisma.StringFilter<"artiste"> | string
   Id_type_artiste?: Prisma.IntFilter<"artiste"> | number
+  Pseudo?: Prisma.StringNullableFilter<"artiste"> | string | null
   type_artiste?: Prisma.XOR<Prisma.Type_artisteScalarRelationFilter, Prisma.type_artisteWhereInput>
   r_servation?: Prisma.R_servationListRelationFilter
 }, "Id_artiste">
@@ -264,6 +274,7 @@ export type artisteOrderByWithAggregationInput = {
   T_l_phone?: Prisma.SortOrderInput | Prisma.SortOrder
   Email?: Prisma.SortOrder
   Id_type_artiste?: Prisma.SortOrder
+  Pseudo?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.artisteCountOrderByAggregateInput
   _avg?: Prisma.artisteAvgOrderByAggregateInput
   _max?: Prisma.artisteMaxOrderByAggregateInput
@@ -281,6 +292,7 @@ export type artisteScalarWhereWithAggregatesInput = {
   T_l_phone?: Prisma.StringNullableWithAggregatesFilter<"artiste"> | string | null
   Email?: Prisma.StringWithAggregatesFilter<"artiste"> | string
   Id_type_artiste?: Prisma.IntWithAggregatesFilter<"artiste"> | number
+  Pseudo?: Prisma.StringNullableWithAggregatesFilter<"artiste"> | string | null
 }
 
 export type artisteCreateInput = {
@@ -289,6 +301,7 @@ export type artisteCreateInput = {
   Pr_nom: string
   T_l_phone?: string | null
   Email: string
+  Pseudo?: string | null
   type_artiste: Prisma.type_artisteCreateNestedOneWithoutArtisteInput
   r_servation?: Prisma.r_servationCreateNestedManyWithoutArtisteInput
 }
@@ -300,6 +313,7 @@ export type artisteUncheckedCreateInput = {
   T_l_phone?: string | null
   Email: string
   Id_type_artiste: number
+  Pseudo?: string | null
   r_servation?: Prisma.r_servationUncheckedCreateNestedManyWithoutArtisteInput
 }
 
@@ -309,6 +323,7 @@ export type artisteUpdateInput = {
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type_artiste?: Prisma.type_artisteUpdateOneRequiredWithoutArtisteNestedInput
   r_servation?: Prisma.r_servationUpdateManyWithoutArtisteNestedInput
 }
@@ -320,6 +335,7 @@ export type artisteUncheckedUpdateInput = {
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
   Id_type_artiste?: Prisma.IntFieldUpdateOperationsInput | number
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   r_servation?: Prisma.r_servationUncheckedUpdateManyWithoutArtisteNestedInput
 }
 
@@ -330,6 +346,7 @@ export type artisteCreateManyInput = {
   T_l_phone?: string | null
   Email: string
   Id_type_artiste: number
+  Pseudo?: string | null
 }
 
 export type artisteUpdateManyMutationInput = {
@@ -338,6 +355,7 @@ export type artisteUpdateManyMutationInput = {
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type artisteUncheckedUpdateManyInput = {
@@ -347,6 +365,7 @@ export type artisteUncheckedUpdateManyInput = {
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
   Id_type_artiste?: Prisma.IntFieldUpdateOperationsInput | number
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type artisteOrderByRelevanceInput = {
@@ -362,6 +381,7 @@ export type artisteCountOrderByAggregateInput = {
   T_l_phone?: Prisma.SortOrder
   Email?: Prisma.SortOrder
   Id_type_artiste?: Prisma.SortOrder
+  Pseudo?: Prisma.SortOrder
 }
 
 export type artisteAvgOrderByAggregateInput = {
@@ -376,6 +396,7 @@ export type artisteMaxOrderByAggregateInput = {
   T_l_phone?: Prisma.SortOrder
   Email?: Prisma.SortOrder
   Id_type_artiste?: Prisma.SortOrder
+  Pseudo?: Prisma.SortOrder
 }
 
 export type artisteMinOrderByAggregateInput = {
@@ -385,6 +406,7 @@ export type artisteMinOrderByAggregateInput = {
   T_l_phone?: Prisma.SortOrder
   Email?: Prisma.SortOrder
   Id_type_artiste?: Prisma.SortOrder
+  Pseudo?: Prisma.SortOrder
 }
 
 export type artisteSumOrderByAggregateInput = {
@@ -485,6 +507,7 @@ export type artisteCreateWithoutR_servationInput = {
   Pr_nom: string
   T_l_phone?: string | null
   Email: string
+  Pseudo?: string | null
   type_artiste: Prisma.type_artisteCreateNestedOneWithoutArtisteInput
 }
 
@@ -495,6 +518,7 @@ export type artisteUncheckedCreateWithoutR_servationInput = {
   T_l_phone?: string | null
   Email: string
   Id_type_artiste: number
+  Pseudo?: string | null
 }
 
 export type artisteCreateOrConnectWithoutR_servationInput = {
@@ -519,6 +543,7 @@ export type artisteUpdateWithoutR_servationInput = {
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   type_artiste?: Prisma.type_artisteUpdateOneRequiredWithoutArtisteNestedInput
 }
 
@@ -529,6 +554,7 @@ export type artisteUncheckedUpdateWithoutR_servationInput = {
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
   Id_type_artiste?: Prisma.IntFieldUpdateOperationsInput | number
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type artisteCreateWithoutType_artisteInput = {
@@ -537,6 +563,7 @@ export type artisteCreateWithoutType_artisteInput = {
   Pr_nom: string
   T_l_phone?: string | null
   Email: string
+  Pseudo?: string | null
   r_servation?: Prisma.r_servationCreateNestedManyWithoutArtisteInput
 }
 
@@ -546,6 +573,7 @@ export type artisteUncheckedCreateWithoutType_artisteInput = {
   Pr_nom: string
   T_l_phone?: string | null
   Email: string
+  Pseudo?: string | null
   r_servation?: Prisma.r_servationUncheckedCreateNestedManyWithoutArtisteInput
 }
 
@@ -585,6 +613,7 @@ export type artisteScalarWhereInput = {
   T_l_phone?: Prisma.StringNullableFilter<"artiste"> | string | null
   Email?: Prisma.StringFilter<"artiste"> | string
   Id_type_artiste?: Prisma.IntFilter<"artiste"> | number
+  Pseudo?: Prisma.StringNullableFilter<"artiste"> | string | null
 }
 
 export type artisteCreateManyType_artisteInput = {
@@ -593,6 +622,7 @@ export type artisteCreateManyType_artisteInput = {
   Pr_nom: string
   T_l_phone?: string | null
   Email: string
+  Pseudo?: string | null
 }
 
 export type artisteUpdateWithoutType_artisteInput = {
@@ -601,6 +631,7 @@ export type artisteUpdateWithoutType_artisteInput = {
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   r_servation?: Prisma.r_servationUpdateManyWithoutArtisteNestedInput
 }
 
@@ -610,6 +641,7 @@ export type artisteUncheckedUpdateWithoutType_artisteInput = {
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   r_servation?: Prisma.r_servationUncheckedUpdateManyWithoutArtisteNestedInput
 }
 
@@ -619,6 +651,7 @@ export type artisteUncheckedUpdateManyWithoutType_artisteInput = {
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Email?: Prisma.StringFieldUpdateOperationsInput | string
+  Pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -659,6 +692,7 @@ export type artisteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   T_l_phone?: boolean
   Email?: boolean
   Id_type_artiste?: boolean
+  Pseudo?: boolean
   type_artiste?: boolean | Prisma.type_artisteDefaultArgs<ExtArgs>
   r_servation?: boolean | Prisma.artiste$r_servationArgs<ExtArgs>
   _count?: boolean | Prisma.ArtisteCountOutputTypeDefaultArgs<ExtArgs>
@@ -673,9 +707,10 @@ export type artisteSelectScalar = {
   T_l_phone?: boolean
   Email?: boolean
   Id_type_artiste?: boolean
+  Pseudo?: boolean
 }
 
-export type artisteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id_artiste" | "Nom" | "Pr_nom" | "T_l_phone" | "Email" | "Id_type_artiste", ExtArgs["result"]["artiste"]>
+export type artisteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id_artiste" | "Nom" | "Pr_nom" | "T_l_phone" | "Email" | "Id_type_artiste" | "Pseudo", ExtArgs["result"]["artiste"]>
 export type artisteInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   type_artiste?: boolean | Prisma.type_artisteDefaultArgs<ExtArgs>
   r_servation?: boolean | Prisma.artiste$r_servationArgs<ExtArgs>
@@ -695,6 +730,7 @@ export type $artistePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     T_l_phone: string | null
     Email: string
     Id_type_artiste: number
+    Pseudo: string | null
   }, ExtArgs["result"]["artiste"]>
   composites: {}
 }
@@ -1072,6 +1108,7 @@ export interface artisteFieldRefs {
   readonly T_l_phone: Prisma.FieldRef<"artiste", 'String'>
   readonly Email: Prisma.FieldRef<"artiste", 'String'>
   readonly Id_type_artiste: Prisma.FieldRef<"artiste", 'Int'>
+  readonly Pseudo: Prisma.FieldRef<"artiste", 'String'>
 }
     
 
