@@ -257,21 +257,19 @@ export type paiementScalarWhereWithAggregatesInput = {
 }
 
 export type paiementCreateInput = {
-  Id_paiement: number
   Date_paiement: Date | string
   mode_payement?: string | null
   facture: Prisma.factureCreateNestedOneWithoutPaiementInput
 }
 
 export type paiementUncheckedCreateInput = {
-  Id_paiement: number
+  Id_paiement?: number
   Date_paiement: Date | string
   mode_payement?: string | null
   Id_facture: number
 }
 
 export type paiementUpdateInput = {
-  Id_paiement?: Prisma.IntFieldUpdateOperationsInput | number
   Date_paiement?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mode_payement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   facture?: Prisma.factureUpdateOneRequiredWithoutPaiementNestedInput
@@ -285,14 +283,13 @@ export type paiementUncheckedUpdateInput = {
 }
 
 export type paiementCreateManyInput = {
-  Id_paiement: number
+  Id_paiement?: number
   Date_paiement: Date | string
   mode_payement?: string | null
   Id_facture: number
 }
 
 export type paiementUpdateManyMutationInput = {
-  Id_paiement?: Prisma.IntFieldUpdateOperationsInput | number
   Date_paiement?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mode_payement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
@@ -379,13 +376,12 @@ export type paiementUncheckedUpdateOneWithoutFactureNestedInput = {
 }
 
 export type paiementCreateWithoutFactureInput = {
-  Id_paiement: number
   Date_paiement: Date | string
   mode_payement?: string | null
 }
 
 export type paiementUncheckedCreateWithoutFactureInput = {
-  Id_paiement: number
+  Id_paiement?: number
   Date_paiement: Date | string
   mode_payement?: string | null
 }
@@ -407,7 +403,6 @@ export type paiementUpdateToOneWithWhereWithoutFactureInput = {
 }
 
 export type paiementUpdateWithoutFactureInput = {
-  Id_paiement?: Prisma.IntFieldUpdateOperationsInput | number
   Date_paiement?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mode_payement?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }

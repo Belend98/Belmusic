@@ -327,7 +327,6 @@ export type r_servationScalarWhereWithAggregatesInput = {
 }
 
 export type r_servationCreateInput = {
-  Id_r_servation: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -341,7 +340,7 @@ export type r_servationCreateInput = {
 }
 
 export type r_servationUncheckedCreateInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -355,7 +354,6 @@ export type r_servationUncheckedCreateInput = {
 }
 
 export type r_servationUpdateInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -383,7 +381,7 @@ export type r_servationUncheckedUpdateInput = {
 }
 
 export type r_servationCreateManyInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -394,7 +392,6 @@ export type r_servationCreateManyInput = {
 }
 
 export type r_servationUpdateManyMutationInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -647,7 +644,6 @@ export type r_servationUncheckedUpdateManyWithoutStudioNestedInput = {
 }
 
 export type r_servationCreateWithoutArtisteInput = {
-  Id_r_servation: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -660,7 +656,7 @@ export type r_servationCreateWithoutArtisteInput = {
 }
 
 export type r_servationUncheckedCreateWithoutArtisteInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -713,7 +709,6 @@ export type r_servationScalarWhereInput = {
 }
 
 export type r_servationCreateWithoutDefault_stackInput = {
-  Id_r_servation: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -726,7 +721,7 @@ export type r_servationCreateWithoutDefault_stackInput = {
 }
 
 export type r_servationUncheckedCreateWithoutDefault_stackInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -765,7 +760,6 @@ export type r_servationUpdateManyWithWhereWithoutDefault_stackInput = {
 }
 
 export type r_servationCreateWithoutFactureInput = {
-  Id_r_servation: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -778,7 +772,7 @@ export type r_servationCreateWithoutFactureInput = {
 }
 
 export type r_servationUncheckedCreateWithoutFactureInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -807,7 +801,6 @@ export type r_servationUpdateToOneWithWhereWithoutFactureInput = {
 }
 
 export type r_servationUpdateWithoutFactureInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -833,7 +826,6 @@ export type r_servationUncheckedUpdateWithoutFactureInput = {
 }
 
 export type r_servationCreateWithoutReservation_equipementInput = {
-  Id_r_servation: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -846,7 +838,7 @@ export type r_servationCreateWithoutReservation_equipementInput = {
 }
 
 export type r_servationUncheckedCreateWithoutReservation_equipementInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -875,7 +867,6 @@ export type r_servationUpdateToOneWithWhereWithoutReservation_equipementInput = 
 }
 
 export type r_servationUpdateWithoutReservation_equipementInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -901,7 +892,6 @@ export type r_servationUncheckedUpdateWithoutReservation_equipementInput = {
 }
 
 export type r_servationCreateWithoutReservation_serviceInput = {
-  Id_r_servation: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -914,7 +904,7 @@ export type r_servationCreateWithoutReservation_serviceInput = {
 }
 
 export type r_servationUncheckedCreateWithoutReservation_serviceInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -943,7 +933,6 @@ export type r_servationUpdateToOneWithWhereWithoutReservation_serviceInput = {
 }
 
 export type r_servationUpdateWithoutReservation_serviceInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -969,7 +958,6 @@ export type r_servationUncheckedUpdateWithoutReservation_serviceInput = {
 }
 
 export type r_servationCreateWithoutStudioInput = {
-  Id_r_servation: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -982,7 +970,7 @@ export type r_servationCreateWithoutStudioInput = {
 }
 
 export type r_servationUncheckedCreateWithoutStudioInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -1021,7 +1009,7 @@ export type r_servationUpdateManyWithWhereWithoutStudioInput = {
 }
 
 export type r_servationCreateManyArtisteInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -1031,7 +1019,6 @@ export type r_servationCreateManyArtisteInput = {
 }
 
 export type r_servationUpdateWithoutArtisteInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1067,7 +1054,7 @@ export type r_servationUncheckedUpdateManyWithoutArtisteInput = {
 }
 
 export type r_servationCreateManyDefault_stackInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -1077,7 +1064,6 @@ export type r_servationCreateManyDefault_stackInput = {
 }
 
 export type r_servationUpdateWithoutDefault_stackInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1113,7 +1099,7 @@ export type r_servationUncheckedUpdateManyWithoutDefault_stackInput = {
 }
 
 export type r_servationCreateManyStudioInput = {
-  Id_r_servation: number
+  Id_r_servation?: number
   Heure_d_but: Date | string
   Heure_fin: Date | string
   Date_: Date | string
@@ -1123,7 +1109,6 @@ export type r_servationCreateManyStudioInput = {
 }
 
 export type r_servationUpdateWithoutStudioInput = {
-  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
   Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string

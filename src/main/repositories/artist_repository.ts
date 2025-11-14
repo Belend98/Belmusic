@@ -23,20 +23,39 @@ export class ArtistRepository {
                 telephone: t.T_l_phone,
                 id_type_artist: t.Id_type_artiste,
                 prenom: t.Pr_nom,
+                pseudo: t.Pseudo
 
             }); //Ne pas mettre unknow, sinon ça bypass le contrat d'interface
         });
     }
 
+    public async getArtistById(id: number): Promise<Artist> {
+        const artiste = await this.dbclient.artiste.findUnique({
+            where: {
+                Id_artiste: id
+            }
+        });
+
+        return {
+            id_artist: artiste.Id_artiste,
+            nom: artiste.Nom,
+            email: artiste.Email,
+            telephone: artiste.T_l_phone,
+            id_type_artist: artiste.Id_type_artiste,
+            prenom: artiste.Pr_nom,
+            pseudo: artiste.Pseudo
+        };
+    }
+
     public async createArtist(a: Artist): Promise<void> {
         await this.dbclient.artiste.create({
             data: {
-                Id_artiste: a.id_artist,
                 Nom: a.nom,
                 Pr_nom: a.prenom,
                 Email: a.email,
                 T_l_phone: a.telephone,
-                Id_type_artiste: a.id_type_artist
+                Id_type_artiste: a.id_type_artist,
+                Pseudo: a.pseudo
             }
         })
     }
@@ -55,13 +74,13 @@ export class ArtistRepository {
                 Id_artiste: a.id_artist
             },
             data: {
-                Id_artiste: a.id_artist,
                 Nom: a.nom,
                 Pr_nom: a.prenom,
                 Email: a.email,
                 T_l_phone: a.telephone,
-                Id_type_artiste: a.id_type_artist
-                
+                Id_type_artiste: a.id_type_artist,
+                Pseudo: a.pseudo
+
 
             }
 

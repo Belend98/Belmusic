@@ -1390,7 +1390,8 @@ export const ArtisteScalarFieldEnum = {
   Pr_nom: 'Pr_nom',
   T_l_phone: 'T_l_phone',
   Email: 'Email',
-  Id_type_artiste: 'Id_type_artiste'
+  Id_type_artiste: 'Id_type_artiste',
+  Pseudo: 'Pseudo'
 } as const
 
 export type ArtisteScalarFieldEnum = (typeof ArtisteScalarFieldEnum)[keyof typeof ArtisteScalarFieldEnum]
@@ -1536,7 +1537,8 @@ export const artisteOrderByRelevanceFieldEnum = {
   Nom: 'Nom',
   Pr_nom: 'Pr_nom',
   T_l_phone: 'T_l_phone',
-  Email: 'Email'
+  Email: 'Email',
+  Pseudo: 'Pseudo'
 } as const
 
 export type artisteOrderByRelevanceFieldEnum = (typeof artisteOrderByRelevanceFieldEnum)[keyof typeof artisteOrderByRelevanceFieldEnum]

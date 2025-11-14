@@ -20,4 +20,8 @@ export function registerArtistRepo(){
     ipcMain.handle("artistRepository:update", (e, id: number, a: Artist)=>{
         return artistRepository.updateArtist(id, a);
     })
+
+    ipcMain.handle("artistRepository:getArtistById", (e, id:number) => {
+        return artistRepository.getArtistById(id)
+    })
 }
