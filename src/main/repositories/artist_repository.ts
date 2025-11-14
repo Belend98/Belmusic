@@ -71,7 +71,7 @@ export class ArtistRepository {
     public async updateArtist(id: number, a: Artist): Promise<void> {
         await this.dbclient.artiste.update({
             where: {
-                Id_artiste: a.id_artist
+                Id_artiste: id
             },
             data: {
                 Nom: a.nom,

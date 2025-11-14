@@ -52,9 +52,10 @@ onMounted(async () => {
 
         if (artistData) {
             a.value = artistData;
-        } else
+        } else{
             console.error("artiste non trouvé");
-        router.push("/list");
+            router.push("/list");
+        }
     }
     catch (error) {
         console.error(error)
@@ -62,7 +63,7 @@ onMounted(async () => {
 });
 
 async function onSubmit() {
-    const jsArtist = {...a.value}
+    const jsArtist = { ...a.value }
     try {
         await window.api.artistService.updateArtist(artistId, jsArtist)
         router.push('/list')
