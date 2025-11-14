@@ -275,7 +275,6 @@ export type factureScalarWhereWithAggregatesInput = {
 }
 
 export type factureCreateInput = {
-  Id_facture: number
   Date_facture: Date | string
   Montant: runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut: boolean
@@ -284,7 +283,7 @@ export type factureCreateInput = {
 }
 
 export type factureUncheckedCreateInput = {
-  Id_facture: number
+  Id_facture?: number
   Date_facture: Date | string
   Montant: runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut: boolean
@@ -293,7 +292,6 @@ export type factureUncheckedCreateInput = {
 }
 
 export type factureUpdateInput = {
-  Id_facture?: Prisma.IntFieldUpdateOperationsInput | number
   Date_facture?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Montant?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -311,7 +309,7 @@ export type factureUncheckedUpdateInput = {
 }
 
 export type factureCreateManyInput = {
-  Id_facture: number
+  Id_facture?: number
   Date_facture: Date | string
   Montant: runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut: boolean
@@ -319,7 +317,6 @@ export type factureCreateManyInput = {
 }
 
 export type factureUpdateManyMutationInput = {
-  Id_facture?: Prisma.IntFieldUpdateOperationsInput | number
   Date_facture?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Montant?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -442,7 +439,6 @@ export type factureUncheckedUpdateOneWithoutR_servationNestedInput = {
 }
 
 export type factureCreateWithoutPaiementInput = {
-  Id_facture: number
   Date_facture: Date | string
   Montant: runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut: boolean
@@ -450,7 +446,7 @@ export type factureCreateWithoutPaiementInput = {
 }
 
 export type factureUncheckedCreateWithoutPaiementInput = {
-  Id_facture: number
+  Id_facture?: number
   Date_facture: Date | string
   Montant: runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut: boolean
@@ -474,7 +470,6 @@ export type factureUpdateToOneWithWhereWithoutPaiementInput = {
 }
 
 export type factureUpdateWithoutPaiementInput = {
-  Id_facture?: Prisma.IntFieldUpdateOperationsInput | number
   Date_facture?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Montant?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -490,7 +485,6 @@ export type factureUncheckedUpdateWithoutPaiementInput = {
 }
 
 export type factureCreateWithoutR_servationInput = {
-  Id_facture: number
   Date_facture: Date | string
   Montant: runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut: boolean
@@ -498,7 +492,7 @@ export type factureCreateWithoutR_servationInput = {
 }
 
 export type factureUncheckedCreateWithoutR_servationInput = {
-  Id_facture: number
+  Id_facture?: number
   Date_facture: Date | string
   Montant: runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut: boolean
@@ -522,7 +516,6 @@ export type factureUpdateToOneWithWhereWithoutR_servationInput = {
 }
 
 export type factureUpdateWithoutR_servationInput = {
-  Id_facture?: Prisma.IntFieldUpdateOperationsInput | number
   Date_facture?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Montant?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   Statut?: Prisma.BoolFieldUpdateOperationsInput | boolean

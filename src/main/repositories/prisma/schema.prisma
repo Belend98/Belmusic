@@ -10,7 +10,7 @@ datasource db {
 }
 
 model artiste {
-  Id_artiste      Int           @id
+  Id_artiste      Int           @id @default(autoincrement())
   Nom             String        @db.VarChar(50)
   Pr_nom          String        @map("Prénom") @db.VarChar(50)
   T_l_phone       String?       @map("Téléphone") @db.VarChar(15)
@@ -46,7 +46,7 @@ model equipement {
 }
 
 model facture {
-  Id_facture     Int         @id
+  Id_facture     Int         @id @default(autoincrement())
   Date_facture   DateTime    @db.Date
   Montant        Decimal     @db.Decimal(10, 2)
   Statut         Boolean
@@ -65,7 +65,7 @@ model ing_nieur_son {
 }
 
 model paiement {
-  Id_paiement   Int      @id
+  Id_paiement   Int      @id @default(autoincrement())
   Date_paiement DateTime @db.Date
   mode_payement String?  @db.VarChar(50)
   Id_facture    Int      @unique(map: "Id_facture")
@@ -92,7 +92,7 @@ model reservation_service {
 }
 
 model r_servation {
-  Id_r_servation         Int                      @id @map("Id_réservation")
+  Id_r_servation         Int                      @id @default(autoincrement()) @map("Id_réservation")
   Heure_d_but            DateTime                 @map("Heure_début") @db.Time(0)
   Heure_fin              DateTime                 @db.Time(0)
   Date_                  DateTime                 @db.Date
@@ -107,9 +107,9 @@ model r_servation {
   artiste                artiste                  @relation(fields: [Id_artiste], references: [Id_artiste], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_2")
   studio                 studio                   @relation(fields: [Id_studio], references: [Id_studio], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_3")
 
-  @@index([Id_artiste], map: "Id_artiste")
   @@index([Id_stack], map: "Id_stack")
   @@index([Id_studio], map: "Id_studio")
+  @@index([Id_artiste], map: "réservation_ibfk_2")
   @@map("réservation")
 }
 

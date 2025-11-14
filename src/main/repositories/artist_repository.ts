@@ -32,7 +32,6 @@ export class ArtistRepository {
     public async createArtist(a: Artist): Promise<void> {
         await this.dbclient.artiste.create({
             data: {
-                Id_artiste: a.id_artist,
                 Nom: a.nom,
                 Pr_nom: a.prenom,
                 Email: a.email,
@@ -57,7 +56,6 @@ export class ArtistRepository {
                 Id_artiste: a.id_artist
             },
             data: {
-                Id_artiste: a.id_artist,
                 Nom: a.nom,
                 Pr_nom: a.prenom,
                 Email: a.email,

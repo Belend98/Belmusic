@@ -296,7 +296,6 @@ export type artisteScalarWhereWithAggregatesInput = {
 }
 
 export type artisteCreateInput = {
-  Id_artiste: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -307,7 +306,7 @@ export type artisteCreateInput = {
 }
 
 export type artisteUncheckedCreateInput = {
-  Id_artiste: number
+  Id_artiste?: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -318,7 +317,6 @@ export type artisteUncheckedCreateInput = {
 }
 
 export type artisteUpdateInput = {
-  Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Nom?: Prisma.StringFieldUpdateOperationsInput | string
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -340,7 +338,7 @@ export type artisteUncheckedUpdateInput = {
 }
 
 export type artisteCreateManyInput = {
-  Id_artiste: number
+  Id_artiste?: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -350,7 +348,6 @@ export type artisteCreateManyInput = {
 }
 
 export type artisteUpdateManyMutationInput = {
-  Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Nom?: Prisma.StringFieldUpdateOperationsInput | string
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -429,20 +426,20 @@ export type artisteOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type artisteCreateNestedOneWithoutR_servationInput = {
@@ -502,7 +499,6 @@ export type artisteUncheckedUpdateManyWithoutType_artisteNestedInput = {
 }
 
 export type artisteCreateWithoutR_servationInput = {
-  Id_artiste: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -512,7 +508,7 @@ export type artisteCreateWithoutR_servationInput = {
 }
 
 export type artisteUncheckedCreateWithoutR_servationInput = {
-  Id_artiste: number
+  Id_artiste?: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -538,7 +534,6 @@ export type artisteUpdateToOneWithWhereWithoutR_servationInput = {
 }
 
 export type artisteUpdateWithoutR_servationInput = {
-  Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Nom?: Prisma.StringFieldUpdateOperationsInput | string
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -558,7 +553,6 @@ export type artisteUncheckedUpdateWithoutR_servationInput = {
 }
 
 export type artisteCreateWithoutType_artisteInput = {
-  Id_artiste: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -568,7 +562,7 @@ export type artisteCreateWithoutType_artisteInput = {
 }
 
 export type artisteUncheckedCreateWithoutType_artisteInput = {
-  Id_artiste: number
+  Id_artiste?: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -617,7 +611,7 @@ export type artisteScalarWhereInput = {
 }
 
 export type artisteCreateManyType_artisteInput = {
-  Id_artiste: number
+  Id_artiste?: number
   Nom: string
   Pr_nom: string
   T_l_phone?: string | null
@@ -626,7 +620,6 @@ export type artisteCreateManyType_artisteInput = {
 }
 
 export type artisteUpdateWithoutType_artisteInput = {
-  Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Nom?: Prisma.StringFieldUpdateOperationsInput | string
   Pr_nom?: Prisma.StringFieldUpdateOperationsInput | string
   T_l_phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null

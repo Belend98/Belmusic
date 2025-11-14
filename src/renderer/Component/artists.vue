@@ -3,7 +3,7 @@
     <header class="hero">
       <h1>Studio Belmusic</h1>
       <p>Bienvenue au studio — réservez votre session.</p>
-      <button @click="() => {router.push('/')}">Ajoute un utilisateur</button>
+      <button @click="redirectCreate">Ajoute un utilisateur</button>
     </header>
 
     <section class="artists">
@@ -16,28 +16,27 @@
       <ul v-else>
         <li v-for="a in artists" :key="a.id_artist" class="artist-card">
           <h3>{{ a.nom }} <small v-if="a.prenom">{{ a.prenom}}</small></h3>
+          <p>Id: {{ a.id_artist }}</p>
           <p>Email: {{ a.email }}</p>
           <p>Type ID: {{ a.id_type_artist }}</p>
         </li>
       </ul>
     </section>
   </div>
-  <createArtist/>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
-import createArtist from './createArtist.vue';
-
-
 
 const artists = ref<Array<any>>([])
 const loading = ref(true)
 const showlist = ref(false)
 const router= useRouter();
 
-
+const redirectCreate = () => {
+  router.push('/creation')
+}
 
 async function toggleListArtists() {
   if (showlist.value){
@@ -57,9 +56,7 @@ async function toggleListArtists() {
     artists.value = []
   } finally {
     loading.value = false
-  }
-  
-  
+  } 
 }
 
 </script>
