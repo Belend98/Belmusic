@@ -29,6 +29,24 @@ export class ArtistRepository {
         });
     }
 
+    public async getArtistById(id: number): Promise<Artist> {
+        const artiste = await this.dbclient.artiste.findUnique({
+            where: {
+                Id_artiste: id
+            }
+        });
+
+        return {
+            id_artist: artiste.Id_artiste,
+            nom: artiste.Nom,
+            email: artiste.Email,
+            telephone: artiste.T_l_phone,
+            id_type_artist: artiste.Id_type_artiste,
+            prenom: artiste.Pr_nom,
+            pseudo: artiste.Pseudo
+        };
+    }
+
     public async createArtist(a: Artist): Promise<void> {
         await this.dbclient.artiste.create({
             data: {
@@ -62,7 +80,7 @@ export class ArtistRepository {
                 T_l_phone: a.telephone,
                 Id_type_artiste: a.id_type_artist,
                 Pseudo: a.pseudo
-                
+
 
             }
 

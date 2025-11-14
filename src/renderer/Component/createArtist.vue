@@ -47,9 +47,9 @@ function onSubmit(){
 }
 
 async function creation(): Promise<void>{
-    const spreadArtist = {...a.value}
+    const jsArtist = {...a.value}
     try{
-        await window.api.artistService.createArtist(spreadArtist)  
+        await window.api.artistService.createArtist(jsArtist)  
         router.push('/list')
     }
     catch(error) {

@@ -9,7 +9,7 @@ export function artistService(): IArtistService{
     getAllArtists : ()=> ipcRenderer.invoke("artistRepository:getAllArtists"),
     createArtist: (a: Artist) => ipcRenderer.invoke("artistRepository:createArtist", a),
     deleteArtist: (id: number)=>ipcRenderer.invoke("artistRepository:delete", id),
-    updateArtist : (id: number, a : Artist) => ipcRenderer.invoke("artistRepository:update", id, a)
+    updateArtist : (a : Artist) => ipcRenderer.invoke("artistRepository:update", a)
     }  
 
 }

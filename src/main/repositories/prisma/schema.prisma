@@ -17,7 +17,7 @@ model artiste {
   Email           String        @db.VarChar(50)
   Id_type_artiste Int
   Pseudo          String?       @db.VarChar(50)
-  type_artiste    type_artiste  @relation(fields: [Id_type_artiste], references: [Id_type_artiste], onDelete: NoAction, onUpdate: NoAction, map: "artiste_ibfk_1")
+  type_artiste    type_artiste  @relation(fields: [Id_type_artiste], references: [Id_type_artiste], onDelete: Cascade, onUpdate: NoAction, map: "artiste_ibfk_1")
   r_servation     r_servation[]
 
   @@index([Id_type_artiste], map: "Id_type_artiste")

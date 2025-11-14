@@ -15,36 +15,43 @@
       </div>
       <ul v-else>
         <li v-for="a in artists" :key="a.id_artist" class="artist-card">
-          <h3>{{ a.nom }} <small v-if="a.prenom">{{ a.prenom}}</small></h3>
+          <h3>{{ a.nom }} <small v-if="a.prenom">{{ a.prenom }}</small></h3>
           <p>Id: {{ a.id_artist }}</p>
           <p>Email: {{ a.email }}</p>
           <p>Type ID: {{ a.id_type_artist }}</p>
+          <p>Blaze: {{ a.pseudo }}</p>
+          <div class="card-actions">
+            <RouterLink :to="`/update/${a.id_artist}`" class="action-btn edit-btn">Modifier</RouterLink>
+            <button @click="deleteOne(a.id_artist)" class="action-btn delete-btn">Supprimer</button>
+          </div>
         </li>
+
       </ul>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import Artist from 'src/shared/artist';
 import { ref } from 'vue'
-import { useRouter } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 
-const artists = ref<Array<any>>([])
+const artists = ref<Array<Artist>>([])
 const loading = ref(true)
 const showlist = ref(false)
-const router= useRouter();
+const router = useRouter();
 
 const redirectCreate = () => {
   router.push('/creation')
 }
 
 async function toggleListArtists() {
-  if (showlist.value){
+  if (showlist.value) {
     showlist.value = false
     artists.value = []
     return
   }
- 
+
   try {
     // call the preload-exposed API
     const res = await window.api.artistService.getAllArtists();
@@ -56,7 +63,20 @@ async function toggleListArtists() {
     artists.value = []
   } finally {
     loading.value = false
-  } 
+  }
+}
+
+async function deleteOne(id: number) {
+  try {
+    await window.api.artistService.deleteArtist(id);
+    artists.value = await window.api.artistService.getAllArtists();
+
+  }
+  catch (error) {
+    console.error(error)
+
+  }
+
 }
 
 </script>
@@ -80,21 +100,59 @@ async function toggleListArtists() {
   margin-top: 20px
 }
 
-.artist-card {
+ul {
   list-style: none;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  margin-bottom: 8px
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.artist-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .artist-card h3 {
-  margin: 0;
-  font-size: 1.1rem
+  margin-top: 0;
 }
 
-.artist-card p {
-  margin: 4px 0;
-  color: #374151
+.card-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit; /* Assure que le bouton utilise la même police */
+  font-size: 14px;
+}
+
+.edit-btn {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #4338ca;
+}
+
+.delete-btn {
+  background-color: #dc2626;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #b91c1c;
 }
 </style>
