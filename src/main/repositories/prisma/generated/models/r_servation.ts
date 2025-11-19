@@ -30,6 +30,7 @@ export type R_servationAvgAggregateOutputType = {
   Id_stack: number | null
   Id_artiste: number | null
   Id_studio: number | null
+  Id_session: number | null
 }
 
 export type R_servationSumAggregateOutputType = {
@@ -37,39 +38,34 @@ export type R_servationSumAggregateOutputType = {
   Id_stack: number | null
   Id_artiste: number | null
   Id_studio: number | null
+  Id_session: number | null
 }
 
 export type R_servationMinAggregateOutputType = {
   Id_r_servation: number | null
-  Heure_d_but: Date | null
-  Heure_fin: Date | null
-  Date_: Date | null
   Etat: boolean | null
   Id_stack: number | null
   Id_artiste: number | null
   Id_studio: number | null
+  Id_session: number | null
 }
 
 export type R_servationMaxAggregateOutputType = {
   Id_r_servation: number | null
-  Heure_d_but: Date | null
-  Heure_fin: Date | null
-  Date_: Date | null
   Etat: boolean | null
   Id_stack: number | null
   Id_artiste: number | null
   Id_studio: number | null
+  Id_session: number | null
 }
 
 export type R_servationCountAggregateOutputType = {
   Id_r_servation: number
-  Heure_d_but: number
-  Heure_fin: number
-  Date_: number
   Etat: number
   Id_stack: number
   Id_artiste: number
   Id_studio: number
+  Id_session: number
   _all: number
 }
 
@@ -79,6 +75,7 @@ export type R_servationAvgAggregateInputType = {
   Id_stack?: true
   Id_artiste?: true
   Id_studio?: true
+  Id_session?: true
 }
 
 export type R_servationSumAggregateInputType = {
@@ -86,39 +83,34 @@ export type R_servationSumAggregateInputType = {
   Id_stack?: true
   Id_artiste?: true
   Id_studio?: true
+  Id_session?: true
 }
 
 export type R_servationMinAggregateInputType = {
   Id_r_servation?: true
-  Heure_d_but?: true
-  Heure_fin?: true
-  Date_?: true
   Etat?: true
   Id_stack?: true
   Id_artiste?: true
   Id_studio?: true
+  Id_session?: true
 }
 
 export type R_servationMaxAggregateInputType = {
   Id_r_servation?: true
-  Heure_d_but?: true
-  Heure_fin?: true
-  Date_?: true
   Etat?: true
   Id_stack?: true
   Id_artiste?: true
   Id_studio?: true
+  Id_session?: true
 }
 
 export type R_servationCountAggregateInputType = {
   Id_r_servation?: true
-  Heure_d_but?: true
-  Heure_fin?: true
-  Date_?: true
   Etat?: true
   Id_stack?: true
   Id_artiste?: true
   Id_studio?: true
+  Id_session?: true
   _all?: true
 }
 
@@ -210,13 +202,11 @@ export type r_servationGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type R_servationGroupByOutputType = {
   Id_r_servation: number
-  Heure_d_but: Date
-  Heure_fin: Date
-  Date_: Date
   Etat: boolean | null
   Id_stack: number
   Id_artiste: number
   Id_studio: number
+  Id_session: number
   _count: R_servationCountAggregateOutputType | null
   _avg: R_servationAvgAggregateOutputType | null
   _sum: R_servationSumAggregateOutputType | null
@@ -244,13 +234,11 @@ export type r_servationWhereInput = {
   OR?: Prisma.r_servationWhereInput[]
   NOT?: Prisma.r_servationWhereInput | Prisma.r_servationWhereInput[]
   Id_r_servation?: Prisma.IntFilter<"r_servation"> | number
-  Heure_d_but?: Prisma.DateTimeFilter<"r_servation"> | Date | string
-  Heure_fin?: Prisma.DateTimeFilter<"r_servation"> | Date | string
-  Date_?: Prisma.DateTimeFilter<"r_servation"> | Date | string
   Etat?: Prisma.BoolNullableFilter<"r_servation"> | boolean | null
   Id_stack?: Prisma.IntFilter<"r_servation"> | number
   Id_artiste?: Prisma.IntFilter<"r_servation"> | number
   Id_studio?: Prisma.IntFilter<"r_servation"> | number
+  Id_session?: Prisma.IntFilter<"r_servation"> | number
   facture?: Prisma.XOR<Prisma.FactureNullableScalarRelationFilter, Prisma.factureWhereInput> | null
   reservation_equipement?: Prisma.Reservation_equipementListRelationFilter
   reservation_service?: Prisma.Reservation_serviceListRelationFilter
@@ -261,13 +249,11 @@ export type r_servationWhereInput = {
 
 export type r_servationOrderByWithRelationInput = {
   Id_r_servation?: Prisma.SortOrder
-  Heure_d_but?: Prisma.SortOrder
-  Heure_fin?: Prisma.SortOrder
-  Date_?: Prisma.SortOrder
   Etat?: Prisma.SortOrderInput | Prisma.SortOrder
   Id_stack?: Prisma.SortOrder
   Id_artiste?: Prisma.SortOrder
   Id_studio?: Prisma.SortOrder
+  Id_session?: Prisma.SortOrder
   facture?: Prisma.factureOrderByWithRelationInput
   reservation_equipement?: Prisma.reservation_equipementOrderByRelationAggregateInput
   reservation_service?: Prisma.reservation_serviceOrderByRelationAggregateInput
@@ -281,13 +267,11 @@ export type r_servationWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.r_servationWhereInput | Prisma.r_servationWhereInput[]
   OR?: Prisma.r_servationWhereInput[]
   NOT?: Prisma.r_servationWhereInput | Prisma.r_servationWhereInput[]
-  Heure_d_but?: Prisma.DateTimeFilter<"r_servation"> | Date | string
-  Heure_fin?: Prisma.DateTimeFilter<"r_servation"> | Date | string
-  Date_?: Prisma.DateTimeFilter<"r_servation"> | Date | string
   Etat?: Prisma.BoolNullableFilter<"r_servation"> | boolean | null
   Id_stack?: Prisma.IntFilter<"r_servation"> | number
   Id_artiste?: Prisma.IntFilter<"r_servation"> | number
   Id_studio?: Prisma.IntFilter<"r_servation"> | number
+  Id_session?: Prisma.IntFilter<"r_servation"> | number
   facture?: Prisma.XOR<Prisma.FactureNullableScalarRelationFilter, Prisma.factureWhereInput> | null
   reservation_equipement?: Prisma.Reservation_equipementListRelationFilter
   reservation_service?: Prisma.Reservation_serviceListRelationFilter
@@ -298,13 +282,11 @@ export type r_servationWhereUniqueInput = Prisma.AtLeast<{
 
 export type r_servationOrderByWithAggregationInput = {
   Id_r_servation?: Prisma.SortOrder
-  Heure_d_but?: Prisma.SortOrder
-  Heure_fin?: Prisma.SortOrder
-  Date_?: Prisma.SortOrder
   Etat?: Prisma.SortOrderInput | Prisma.SortOrder
   Id_stack?: Prisma.SortOrder
   Id_artiste?: Prisma.SortOrder
   Id_studio?: Prisma.SortOrder
+  Id_session?: Prisma.SortOrder
   _count?: Prisma.r_servationCountOrderByAggregateInput
   _avg?: Prisma.r_servationAvgOrderByAggregateInput
   _max?: Prisma.r_servationMaxOrderByAggregateInput
@@ -317,20 +299,16 @@ export type r_servationScalarWhereWithAggregatesInput = {
   OR?: Prisma.r_servationScalarWhereWithAggregatesInput[]
   NOT?: Prisma.r_servationScalarWhereWithAggregatesInput | Prisma.r_servationScalarWhereWithAggregatesInput[]
   Id_r_servation?: Prisma.IntWithAggregatesFilter<"r_servation"> | number
-  Heure_d_but?: Prisma.DateTimeWithAggregatesFilter<"r_servation"> | Date | string
-  Heure_fin?: Prisma.DateTimeWithAggregatesFilter<"r_servation"> | Date | string
-  Date_?: Prisma.DateTimeWithAggregatesFilter<"r_servation"> | Date | string
   Etat?: Prisma.BoolNullableWithAggregatesFilter<"r_servation"> | boolean | null
   Id_stack?: Prisma.IntWithAggregatesFilter<"r_servation"> | number
   Id_artiste?: Prisma.IntWithAggregatesFilter<"r_servation"> | number
   Id_studio?: Prisma.IntWithAggregatesFilter<"r_servation"> | number
+  Id_session?: Prisma.IntWithAggregatesFilter<"r_servation"> | number
 }
 
 export type r_servationCreateInput = {
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
+  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
@@ -341,23 +319,19 @@ export type r_servationCreateInput = {
 
 export type r_servationUncheckedCreateInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_artiste: number
   Id_studio: number
+  Id_session: number
   facture?: Prisma.factureUncheckedCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceUncheckedCreateNestedManyWithoutR_servationInput
 }
 
 export type r_servationUpdateInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
@@ -368,13 +342,11 @@ export type r_servationUpdateInput = {
 
 export type r_servationUncheckedUpdateInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUncheckedUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUncheckedUpdateManyWithoutR_servationNestedInput
@@ -382,31 +354,25 @@ export type r_servationUncheckedUpdateInput = {
 
 export type r_servationCreateManyInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_artiste: number
   Id_studio: number
+  Id_session: number
 }
 
 export type r_servationUpdateManyMutationInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type r_servationUncheckedUpdateManyInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type R_servationListRelationFilter = {
@@ -426,13 +392,11 @@ export type R_servationScalarRelationFilter = {
 
 export type r_servationCountOrderByAggregateInput = {
   Id_r_servation?: Prisma.SortOrder
-  Heure_d_but?: Prisma.SortOrder
-  Heure_fin?: Prisma.SortOrder
-  Date_?: Prisma.SortOrder
   Etat?: Prisma.SortOrder
   Id_stack?: Prisma.SortOrder
   Id_artiste?: Prisma.SortOrder
   Id_studio?: Prisma.SortOrder
+  Id_session?: Prisma.SortOrder
 }
 
 export type r_servationAvgOrderByAggregateInput = {
@@ -440,28 +404,25 @@ export type r_servationAvgOrderByAggregateInput = {
   Id_stack?: Prisma.SortOrder
   Id_artiste?: Prisma.SortOrder
   Id_studio?: Prisma.SortOrder
+  Id_session?: Prisma.SortOrder
 }
 
 export type r_servationMaxOrderByAggregateInput = {
   Id_r_servation?: Prisma.SortOrder
-  Heure_d_but?: Prisma.SortOrder
-  Heure_fin?: Prisma.SortOrder
-  Date_?: Prisma.SortOrder
   Etat?: Prisma.SortOrder
   Id_stack?: Prisma.SortOrder
   Id_artiste?: Prisma.SortOrder
   Id_studio?: Prisma.SortOrder
+  Id_session?: Prisma.SortOrder
 }
 
 export type r_servationMinOrderByAggregateInput = {
   Id_r_servation?: Prisma.SortOrder
-  Heure_d_but?: Prisma.SortOrder
-  Heure_fin?: Prisma.SortOrder
-  Date_?: Prisma.SortOrder
   Etat?: Prisma.SortOrder
   Id_stack?: Prisma.SortOrder
   Id_artiste?: Prisma.SortOrder
   Id_studio?: Prisma.SortOrder
+  Id_session?: Prisma.SortOrder
 }
 
 export type r_servationSumOrderByAggregateInput = {
@@ -469,6 +430,7 @@ export type r_servationSumOrderByAggregateInput = {
   Id_stack?: Prisma.SortOrder
   Id_artiste?: Prisma.SortOrder
   Id_studio?: Prisma.SortOrder
+  Id_session?: Prisma.SortOrder
 }
 
 export type r_servationCreateNestedManyWithoutArtisteInput = {
@@ -644,10 +606,8 @@ export type r_servationUncheckedUpdateManyWithoutStudioNestedInput = {
 }
 
 export type r_servationCreateWithoutArtisteInput = {
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
+  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
@@ -657,12 +617,10 @@ export type r_servationCreateWithoutArtisteInput = {
 
 export type r_servationUncheckedCreateWithoutArtisteInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_studio: number
+  Id_session: number
   facture?: Prisma.factureUncheckedCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceUncheckedCreateNestedManyWithoutR_servationInput
@@ -699,20 +657,16 @@ export type r_servationScalarWhereInput = {
   OR?: Prisma.r_servationScalarWhereInput[]
   NOT?: Prisma.r_servationScalarWhereInput | Prisma.r_servationScalarWhereInput[]
   Id_r_servation?: Prisma.IntFilter<"r_servation"> | number
-  Heure_d_but?: Prisma.DateTimeFilter<"r_servation"> | Date | string
-  Heure_fin?: Prisma.DateTimeFilter<"r_servation"> | Date | string
-  Date_?: Prisma.DateTimeFilter<"r_servation"> | Date | string
   Etat?: Prisma.BoolNullableFilter<"r_servation"> | boolean | null
   Id_stack?: Prisma.IntFilter<"r_servation"> | number
   Id_artiste?: Prisma.IntFilter<"r_servation"> | number
   Id_studio?: Prisma.IntFilter<"r_servation"> | number
+  Id_session?: Prisma.IntFilter<"r_servation"> | number
 }
 
 export type r_servationCreateWithoutDefault_stackInput = {
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
+  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
@@ -722,12 +676,10 @@ export type r_servationCreateWithoutDefault_stackInput = {
 
 export type r_servationUncheckedCreateWithoutDefault_stackInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_artiste: number
   Id_studio: number
+  Id_session: number
   facture?: Prisma.factureUncheckedCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceUncheckedCreateNestedManyWithoutR_servationInput
@@ -760,10 +712,8 @@ export type r_servationUpdateManyWithWhereWithoutDefault_stackInput = {
 }
 
 export type r_servationCreateWithoutFactureInput = {
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
+  Id_session: number
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
@@ -773,13 +723,11 @@ export type r_servationCreateWithoutFactureInput = {
 
 export type r_servationUncheckedCreateWithoutFactureInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_artiste: number
   Id_studio: number
+  Id_session: number
   reservation_equipement?: Prisma.reservation_equipementUncheckedCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceUncheckedCreateNestedManyWithoutR_servationInput
 }
@@ -801,10 +749,8 @@ export type r_servationUpdateToOneWithWhereWithoutFactureInput = {
 }
 
 export type r_servationUpdateWithoutFactureInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
@@ -814,22 +760,18 @@ export type r_servationUpdateWithoutFactureInput = {
 
 export type r_servationUncheckedUpdateWithoutFactureInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUncheckedUpdateManyWithoutR_servationNestedInput
 }
 
 export type r_servationCreateWithoutReservation_equipementInput = {
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
+  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
@@ -839,13 +781,11 @@ export type r_servationCreateWithoutReservation_equipementInput = {
 
 export type r_servationUncheckedCreateWithoutReservation_equipementInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_artiste: number
   Id_studio: number
+  Id_session: number
   facture?: Prisma.factureUncheckedCreateNestedOneWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceUncheckedCreateNestedManyWithoutR_servationInput
 }
@@ -867,10 +807,8 @@ export type r_servationUpdateToOneWithWhereWithoutReservation_equipementInput = 
 }
 
 export type r_servationUpdateWithoutReservation_equipementInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
@@ -880,22 +818,18 @@ export type r_servationUpdateWithoutReservation_equipementInput = {
 
 export type r_servationUncheckedUpdateWithoutReservation_equipementInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUncheckedUpdateOneWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUncheckedUpdateManyWithoutR_servationNestedInput
 }
 
 export type r_servationCreateWithoutReservation_serviceInput = {
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
+  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
@@ -905,13 +839,11 @@ export type r_servationCreateWithoutReservation_serviceInput = {
 
 export type r_servationUncheckedCreateWithoutReservation_serviceInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_artiste: number
   Id_studio: number
+  Id_session: number
   facture?: Prisma.factureUncheckedCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedCreateNestedManyWithoutR_servationInput
 }
@@ -933,10 +865,8 @@ export type r_servationUpdateToOneWithWhereWithoutReservation_serviceInput = {
 }
 
 export type r_servationUpdateWithoutReservation_serviceInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
@@ -946,22 +876,18 @@ export type r_servationUpdateWithoutReservation_serviceInput = {
 
 export type r_servationUncheckedUpdateWithoutReservation_serviceInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUncheckedUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
 }
 
 export type r_servationCreateWithoutStudioInput = {
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
+  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
@@ -971,12 +897,10 @@ export type r_servationCreateWithoutStudioInput = {
 
 export type r_servationUncheckedCreateWithoutStudioInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_artiste: number
+  Id_session: number
   facture?: Prisma.factureUncheckedCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceUncheckedCreateNestedManyWithoutR_servationInput
@@ -1010,19 +934,15 @@ export type r_servationUpdateManyWithWhereWithoutStudioInput = {
 
 export type r_servationCreateManyArtisteInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_studio: number
+  Id_session: number
 }
 
 export type r_servationUpdateWithoutArtisteInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
@@ -1032,12 +952,10 @@ export type r_servationUpdateWithoutArtisteInput = {
 
 export type r_servationUncheckedUpdateWithoutArtisteInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUncheckedUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUncheckedUpdateManyWithoutR_servationNestedInput
@@ -1045,29 +963,23 @@ export type r_servationUncheckedUpdateWithoutArtisteInput = {
 
 export type r_servationUncheckedUpdateManyWithoutArtisteInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type r_servationCreateManyDefault_stackInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_artiste: number
   Id_studio: number
+  Id_session: number
 }
 
 export type r_servationUpdateWithoutDefault_stackInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
@@ -1077,12 +989,10 @@ export type r_servationUpdateWithoutDefault_stackInput = {
 
 export type r_servationUncheckedUpdateWithoutDefault_stackInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUncheckedUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUncheckedUpdateManyWithoutR_servationNestedInput
@@ -1090,29 +1000,23 @@ export type r_servationUncheckedUpdateWithoutDefault_stackInput = {
 
 export type r_servationUncheckedUpdateManyWithoutDefault_stackInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
   Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type r_servationCreateManyStudioInput = {
   Id_r_servation?: number
-  Heure_d_but: Date | string
-  Heure_fin: Date | string
-  Date_: Date | string
   Etat?: boolean | null
   Id_stack: number
   Id_artiste: number
+  Id_session: number
 }
 
 export type r_servationUpdateWithoutStudioInput = {
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
@@ -1122,12 +1026,10 @@ export type r_servationUpdateWithoutStudioInput = {
 
 export type r_servationUncheckedUpdateWithoutStudioInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUncheckedUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUncheckedUpdateManyWithoutR_servationNestedInput
@@ -1135,12 +1037,10 @@ export type r_servationUncheckedUpdateWithoutStudioInput = {
 
 export type r_servationUncheckedUpdateManyWithoutStudioInput = {
   Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
-  Heure_d_but?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Date_?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
   Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -1185,13 +1085,11 @@ export type R_servationCountOutputTypeCountReservation_serviceArgs<ExtArgs exten
 
 export type r_servationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   Id_r_servation?: boolean
-  Heure_d_but?: boolean
-  Heure_fin?: boolean
-  Date_?: boolean
   Etat?: boolean
   Id_stack?: boolean
   Id_artiste?: boolean
   Id_studio?: boolean
+  Id_session?: boolean
   facture?: boolean | Prisma.r_servation$factureArgs<ExtArgs>
   reservation_equipement?: boolean | Prisma.r_servation$reservation_equipementArgs<ExtArgs>
   reservation_service?: boolean | Prisma.r_servation$reservation_serviceArgs<ExtArgs>
@@ -1205,16 +1103,14 @@ export type r_servationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type r_servationSelectScalar = {
   Id_r_servation?: boolean
-  Heure_d_but?: boolean
-  Heure_fin?: boolean
-  Date_?: boolean
   Etat?: boolean
   Id_stack?: boolean
   Id_artiste?: boolean
   Id_studio?: boolean
+  Id_session?: boolean
 }
 
-export type r_servationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id_r_servation" | "Heure_d_but" | "Heure_fin" | "Date_" | "Etat" | "Id_stack" | "Id_artiste" | "Id_studio", ExtArgs["result"]["r_servation"]>
+export type r_servationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id_r_servation" | "Etat" | "Id_stack" | "Id_artiste" | "Id_studio" | "Id_session", ExtArgs["result"]["r_servation"]>
 export type r_servationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   facture?: boolean | Prisma.r_servation$factureArgs<ExtArgs>
   reservation_equipement?: boolean | Prisma.r_servation$reservation_equipementArgs<ExtArgs>
@@ -1237,13 +1133,11 @@ export type $r_servationPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id_r_servation: number
-    Heure_d_but: Date
-    Heure_fin: Date
-    Date_: Date
     Etat: boolean | null
     Id_stack: number
     Id_artiste: number
     Id_studio: number
+    Id_session: number
   }, ExtArgs["result"]["r_servation"]>
   composites: {}
 }
@@ -1620,13 +1514,11 @@ export interface Prisma__r_servationClient<T, Null = never, ExtArgs extends runt
  */
 export interface r_servationFieldRefs {
   readonly Id_r_servation: Prisma.FieldRef<"r_servation", 'Int'>
-  readonly Heure_d_but: Prisma.FieldRef<"r_servation", 'DateTime'>
-  readonly Heure_fin: Prisma.FieldRef<"r_servation", 'DateTime'>
-  readonly Date_: Prisma.FieldRef<"r_servation", 'DateTime'>
   readonly Etat: Prisma.FieldRef<"r_servation", 'Boolean'>
   readonly Id_stack: Prisma.FieldRef<"r_servation", 'Int'>
   readonly Id_artiste: Prisma.FieldRef<"r_servation", 'Int'>
   readonly Id_studio: Prisma.FieldRef<"r_servation", 'Int'>
+  readonly Id_session: Prisma.FieldRef<"r_servation", 'Int'>
 }
     
 

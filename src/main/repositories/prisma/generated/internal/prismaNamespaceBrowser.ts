@@ -58,6 +58,7 @@ export const ModelName = {
   reservation_equipement: 'reservation_equipement',
   reservation_service: 'reservation_service',
   r_servation: 'r_servation',
+  session: 'session',
   service: 'service',
   studio: 'studio',
   studio_ing_: 'studio_ing_',
@@ -167,16 +168,24 @@ export type Reservation_serviceScalarFieldEnum = (typeof Reservation_serviceScal
 
 export const R_servationScalarFieldEnum = {
   Id_r_servation: 'Id_r_servation',
-  Heure_d_but: 'Heure_d_but',
-  Heure_fin: 'Heure_fin',
-  Date_: 'Date_',
   Etat: 'Etat',
   Id_stack: 'Id_stack',
   Id_artiste: 'Id_artiste',
-  Id_studio: 'Id_studio'
+  Id_studio: 'Id_studio',
+  Id_session: 'Id_session'
 } as const
 
 export type R_servationScalarFieldEnum = (typeof R_servationScalarFieldEnum)[keyof typeof R_servationScalarFieldEnum]
+
+
+export const SessionScalarFieldEnum = {
+  Id_session: 'Id_session',
+  Heure_debut: 'Heure_debut',
+  Heure_fin: 'Heure_fin',
+  Date: 'Date'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
 
 
 export const ServiceScalarFieldEnum = {

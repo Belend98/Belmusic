@@ -67,6 +67,11 @@ export type reservation_service = Prisma.reservation_serviceModel
  */
 export type r_servation = Prisma.r_servationModel
 /**
+ * Model session
+ * 
+ */
+export type session = Prisma.sessionModel
+/**
  * Model service
  * 
  */

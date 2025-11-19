@@ -10,7 +10,7 @@ export class ArtistRepository {
     constructor() {
         let adapter = new PrismaMariaDb(process.env.DATABASE_URL);
 
-        this.dbclient = new PrismaClient({ adapter });
+        this.dbclient = new PrismaClient({adapter} );
     }
     public async getAllArtists(): Promise<Artist[]> {
         const artistes = await this.dbclient.artiste.findMany();

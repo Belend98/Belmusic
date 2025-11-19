@@ -398,6 +398,7 @@ export const ModelName = {
   reservation_equipement: 'reservation_equipement',
   reservation_service: 'reservation_service',
   r_servation: 'r_servation',
+  session: 'session',
   service: 'service',
   studio: 'studio',
   studio_ing_: 'studio_ing_',
@@ -417,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "artiste" | "composition_stack" | "default_stack" | "equipement" | "facture" | "ing_nieur_son" | "paiement" | "reservation_equipement" | "reservation_service" | "r_servation" | "service" | "studio" | "studio_ing_" | "type_artiste"
+    modelProps: "artiste" | "composition_stack" | "default_stack" | "equipement" | "facture" | "ing_nieur_son" | "paiement" | "reservation_equipement" | "reservation_service" | "r_servation" | "session" | "service" | "studio" | "studio_ing_" | "type_artiste"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1081,6 +1082,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    session: {
+      payload: Prisma.$sessionPayload<ExtArgs>
+      fields: Prisma.sessionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.sessionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.sessionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload>
+        }
+        findFirst: {
+          args: Prisma.sessionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.sessionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload>
+        }
+        findMany: {
+          args: Prisma.sessionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload>[]
+        }
+        create: {
+          args: Prisma.sessionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload>
+        }
+        createMany: {
+          args: Prisma.sessionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.sessionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload>
+        }
+        update: {
+          args: Prisma.sessionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload>
+        }
+        deleteMany: {
+          args: Prisma.sessionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.sessionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.sessionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$sessionPayload>
+        }
+        aggregate: {
+          args: Prisma.SessionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSession>
+        }
+        groupBy: {
+          args: Prisma.sessionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SessionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.sessionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SessionCountAggregateOutputType> | number
+        }
+      }
+    }
     service: {
       payload: Prisma.$servicePayload<ExtArgs>
       fields: Prisma.serviceFieldRefs
@@ -1471,16 +1538,24 @@ export type Reservation_serviceScalarFieldEnum = (typeof Reservation_serviceScal
 
 export const R_servationScalarFieldEnum = {
   Id_r_servation: 'Id_r_servation',
-  Heure_d_but: 'Heure_d_but',
-  Heure_fin: 'Heure_fin',
-  Date_: 'Date_',
   Etat: 'Etat',
   Id_stack: 'Id_stack',
   Id_artiste: 'Id_artiste',
-  Id_studio: 'Id_studio'
+  Id_studio: 'Id_studio',
+  Id_session: 'Id_session'
 } as const
 
 export type R_servationScalarFieldEnum = (typeof R_servationScalarFieldEnum)[keyof typeof R_servationScalarFieldEnum]
+
+
+export const SessionScalarFieldEnum = {
+  Id_session: 'Id_session',
+  Heure_debut: 'Heure_debut',
+  Heure_fin: 'Heure_fin',
+  Date: 'Date'
+} as const
+
+export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
 
 
 export const ServiceScalarFieldEnum = {
@@ -1738,6 +1813,7 @@ export type GlobalOmitConfig = {
   reservation_equipement?: Prisma.reservation_equipementOmit
   reservation_service?: Prisma.reservation_serviceOmit
   r_servation?: Prisma.r_servationOmit
+  session?: Prisma.sessionOmit
   service?: Prisma.serviceOmit
   studio?: Prisma.studioOmit
   studio_ing_?: Prisma.studio_ing_Omit
