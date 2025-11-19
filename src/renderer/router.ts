@@ -3,11 +3,11 @@ import notFound from "./Component/notFound.vue";
 import Home from "./Component/home.vue";
 import NavBar from "./Component/navBar.vue";
 import DashBoard from "./Component/dashBoard.vue";
-import Reservation from "./Component/reservation.vue";
+import Reservation from "./Component/ReservationComponent/reservationCard.vue";
 import Calendar from "./Component/calendar.vue";
-import CreateArtist from "./Component/createArtist.vue";
-import Artists from "./Component/artists.vue";
-import UpdateArtist from "./Component/updateArtist.vue";
+import CreateArtist from "./Component/ArtistComponenent/createArtist.vue";
+import Artists from "./Component/ArtistComponenent/artists.vue";
+import UpdateArtist from "./Component/ArtistComponenent/updateArtist.vue";
 
 
 

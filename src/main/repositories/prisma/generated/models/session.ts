@@ -207,6 +207,7 @@ export type sessionWhereInput = {
   Heure_debut?: Prisma.DateTimeFilter<"session"> | Date | string
   Heure_fin?: Prisma.DateTimeFilter<"session"> | Date | string
   Date?: Prisma.DateTimeFilter<"session"> | Date | string
+  r_servation?: Prisma.R_servationListRelationFilter
 }
 
 export type sessionOrderByWithRelationInput = {
@@ -214,6 +215,7 @@ export type sessionOrderByWithRelationInput = {
   Heure_debut?: Prisma.SortOrder
   Heure_fin?: Prisma.SortOrder
   Date?: Prisma.SortOrder
+  r_servation?: Prisma.r_servationOrderByRelationAggregateInput
 }
 
 export type sessionWhereUniqueInput = Prisma.AtLeast<{
@@ -224,6 +226,7 @@ export type sessionWhereUniqueInput = Prisma.AtLeast<{
   Heure_debut?: Prisma.DateTimeFilter<"session"> | Date | string
   Heure_fin?: Prisma.DateTimeFilter<"session"> | Date | string
   Date?: Prisma.DateTimeFilter<"session"> | Date | string
+  r_servation?: Prisma.R_servationListRelationFilter
 }, "Id_session">
 
 export type sessionOrderByWithAggregationInput = {
@@ -252,6 +255,7 @@ export type sessionCreateInput = {
   Heure_debut: Date | string
   Heure_fin: Date | string
   Date: Date | string
+  r_servation?: Prisma.r_servationCreateNestedManyWithoutSessionInput
 }
 
 export type sessionUncheckedCreateInput = {
@@ -259,12 +263,14 @@ export type sessionUncheckedCreateInput = {
   Heure_debut: Date | string
   Heure_fin: Date | string
   Date: Date | string
+  r_servation?: Prisma.r_servationUncheckedCreateNestedManyWithoutSessionInput
 }
 
 export type sessionUpdateInput = {
   Heure_debut?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  r_servation?: Prisma.r_servationUpdateManyWithoutSessionNestedInput
 }
 
 export type sessionUncheckedUpdateInput = {
@@ -272,6 +278,7 @@ export type sessionUncheckedUpdateInput = {
   Heure_debut?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  r_servation?: Prisma.r_servationUncheckedUpdateManyWithoutSessionNestedInput
 }
 
 export type sessionCreateManyInput = {
@@ -292,6 +299,11 @@ export type sessionUncheckedUpdateManyInput = {
   Heure_debut?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type SessionScalarRelationFilter = {
+  is?: Prisma.sessionWhereInput
+  isNot?: Prisma.sessionWhereInput
 }
 
 export type sessionCountOrderByAggregateInput = {
@@ -323,6 +335,91 @@ export type sessionSumOrderByAggregateInput = {
   Id_session?: Prisma.SortOrder
 }
 
+export type sessionCreateNestedOneWithoutR_servationInput = {
+  create?: Prisma.XOR<Prisma.sessionCreateWithoutR_servationInput, Prisma.sessionUncheckedCreateWithoutR_servationInput>
+  connectOrCreate?: Prisma.sessionCreateOrConnectWithoutR_servationInput
+  connect?: Prisma.sessionWhereUniqueInput
+}
+
+export type sessionUpdateOneRequiredWithoutR_servationNestedInput = {
+  create?: Prisma.XOR<Prisma.sessionCreateWithoutR_servationInput, Prisma.sessionUncheckedCreateWithoutR_servationInput>
+  connectOrCreate?: Prisma.sessionCreateOrConnectWithoutR_servationInput
+  upsert?: Prisma.sessionUpsertWithoutR_servationInput
+  connect?: Prisma.sessionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.sessionUpdateToOneWithWhereWithoutR_servationInput, Prisma.sessionUpdateWithoutR_servationInput>, Prisma.sessionUncheckedUpdateWithoutR_servationInput>
+}
+
+export type sessionCreateWithoutR_servationInput = {
+  Heure_debut: Date | string
+  Heure_fin: Date | string
+  Date: Date | string
+}
+
+export type sessionUncheckedCreateWithoutR_servationInput = {
+  Id_session?: number
+  Heure_debut: Date | string
+  Heure_fin: Date | string
+  Date: Date | string
+}
+
+export type sessionCreateOrConnectWithoutR_servationInput = {
+  where: Prisma.sessionWhereUniqueInput
+  create: Prisma.XOR<Prisma.sessionCreateWithoutR_servationInput, Prisma.sessionUncheckedCreateWithoutR_servationInput>
+}
+
+export type sessionUpsertWithoutR_servationInput = {
+  update: Prisma.XOR<Prisma.sessionUpdateWithoutR_servationInput, Prisma.sessionUncheckedUpdateWithoutR_servationInput>
+  create: Prisma.XOR<Prisma.sessionCreateWithoutR_servationInput, Prisma.sessionUncheckedCreateWithoutR_servationInput>
+  where?: Prisma.sessionWhereInput
+}
+
+export type sessionUpdateToOneWithWhereWithoutR_servationInput = {
+  where?: Prisma.sessionWhereInput
+  data: Prisma.XOR<Prisma.sessionUpdateWithoutR_servationInput, Prisma.sessionUncheckedUpdateWithoutR_servationInput>
+}
+
+export type sessionUpdateWithoutR_servationInput = {
+  Heure_debut?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type sessionUncheckedUpdateWithoutR_servationInput = {
+  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
+  Heure_debut?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Heure_fin?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type SessionCountOutputType
+ */
+
+export type SessionCountOutputType = {
+  r_servation: number
+}
+
+export type SessionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  r_servation?: boolean | SessionCountOutputTypeCountR_servationArgs
+}
+
+/**
+ * SessionCountOutputType without action
+ */
+export type SessionCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SessionCountOutputType
+   */
+  select?: Prisma.SessionCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * SessionCountOutputType without action
+ */
+export type SessionCountOutputTypeCountR_servationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.r_servationWhereInput
+}
 
 
 export type sessionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -330,6 +427,8 @@ export type sessionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   Heure_debut?: boolean
   Heure_fin?: boolean
   Date?: boolean
+  r_servation?: boolean | Prisma.session$r_servationArgs<ExtArgs>
+  _count?: boolean | Prisma.SessionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["session"]>
 
 
@@ -342,10 +441,16 @@ export type sessionSelectScalar = {
 }
 
 export type sessionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"Id_session" | "Heure_debut" | "Heure_fin" | "Date", ExtArgs["result"]["session"]>
+export type sessionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  r_servation?: boolean | Prisma.session$r_servationArgs<ExtArgs>
+  _count?: boolean | Prisma.SessionCountOutputTypeDefaultArgs<ExtArgs>
+}
 
 export type $sessionPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "session"
-  objects: {}
+  objects: {
+    r_servation: Prisma.$r_servationPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id_session: number
     Heure_debut: Date
@@ -691,6 +796,7 @@ readonly fields: sessionFieldRefs;
  */
 export interface Prisma__sessionClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  r_servation<T extends Prisma.session$r_servationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.session$r_servationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$r_servationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -741,6 +847,10 @@ export type sessionFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
+  /**
    * Filter, which session to fetch.
    */
   where: Prisma.sessionWhereUniqueInput
@@ -759,6 +869,10 @@ export type sessionFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
+  /**
    * Filter, which session to fetch.
    */
   where: Prisma.sessionWhereUniqueInput
@@ -776,6 +890,10 @@ export type sessionFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the session
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
   /**
    * Filter, which session to fetch.
    */
@@ -825,6 +943,10 @@ export type sessionFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
+  /**
    * Filter, which session to fetch.
    */
   where?: Prisma.sessionWhereInput
@@ -873,6 +995,10 @@ export type sessionFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
+  /**
    * Filter, which sessions to fetch.
    */
   where?: Prisma.sessionWhereInput
@@ -916,6 +1042,10 @@ export type sessionCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
+  /**
    * The data needed to create a session.
    */
   data: Prisma.XOR<Prisma.sessionCreateInput, Prisma.sessionUncheckedCreateInput>
@@ -944,6 +1074,10 @@ export type sessionUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the session
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
   /**
    * The data needed to update a session.
    */
@@ -985,6 +1119,10 @@ export type sessionUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
+  /**
    * The filter to search for the session to update in case it exists.
    */
   where: Prisma.sessionWhereUniqueInput
@@ -1011,6 +1149,10 @@ export type sessionDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
+  /**
    * Filter which session to delete.
    */
   where: Prisma.sessionWhereUniqueInput
@@ -1031,6 +1173,30 @@ export type sessionDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * session.r_servation
+ */
+export type session$r_servationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the r_servation
+   */
+  select?: Prisma.r_servationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the r_servation
+   */
+  omit?: Prisma.r_servationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.r_servationInclude<ExtArgs> | null
+  where?: Prisma.r_servationWhereInput
+  orderBy?: Prisma.r_servationOrderByWithRelationInput | Prisma.r_servationOrderByWithRelationInput[]
+  cursor?: Prisma.r_servationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.R_servationScalarFieldEnum | Prisma.R_servationScalarFieldEnum[]
+}
+
+/**
  * session without action
  */
 export type sessionDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1042,4 +1208,8 @@ export type sessionDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the session
    */
   omit?: Prisma.sessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.sessionInclude<ExtArgs> | null
 }

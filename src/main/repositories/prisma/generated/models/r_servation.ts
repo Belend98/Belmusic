@@ -245,6 +245,7 @@ export type r_servationWhereInput = {
   default_stack?: Prisma.XOR<Prisma.Default_stackScalarRelationFilter, Prisma.default_stackWhereInput>
   artiste?: Prisma.XOR<Prisma.ArtisteScalarRelationFilter, Prisma.artisteWhereInput>
   studio?: Prisma.XOR<Prisma.StudioScalarRelationFilter, Prisma.studioWhereInput>
+  session?: Prisma.XOR<Prisma.SessionScalarRelationFilter, Prisma.sessionWhereInput>
 }
 
 export type r_servationOrderByWithRelationInput = {
@@ -260,6 +261,7 @@ export type r_servationOrderByWithRelationInput = {
   default_stack?: Prisma.default_stackOrderByWithRelationInput
   artiste?: Prisma.artisteOrderByWithRelationInput
   studio?: Prisma.studioOrderByWithRelationInput
+  session?: Prisma.sessionOrderByWithRelationInput
 }
 
 export type r_servationWhereUniqueInput = Prisma.AtLeast<{
@@ -278,6 +280,7 @@ export type r_servationWhereUniqueInput = Prisma.AtLeast<{
   default_stack?: Prisma.XOR<Prisma.Default_stackScalarRelationFilter, Prisma.default_stackWhereInput>
   artiste?: Prisma.XOR<Prisma.ArtisteScalarRelationFilter, Prisma.artisteWhereInput>
   studio?: Prisma.XOR<Prisma.StudioScalarRelationFilter, Prisma.studioWhereInput>
+  session?: Prisma.XOR<Prisma.SessionScalarRelationFilter, Prisma.sessionWhereInput>
 }, "Id_r_servation">
 
 export type r_servationOrderByWithAggregationInput = {
@@ -308,13 +311,13 @@ export type r_servationScalarWhereWithAggregatesInput = {
 
 export type r_servationCreateInput = {
   Etat?: boolean | null
-  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
   artiste: Prisma.artisteCreateNestedOneWithoutR_servationInput
   studio: Prisma.studioCreateNestedOneWithoutR_servationInput
+  session: Prisma.sessionCreateNestedOneWithoutR_servationInput
 }
 
 export type r_servationUncheckedCreateInput = {
@@ -331,13 +334,13 @@ export type r_servationUncheckedCreateInput = {
 
 export type r_servationUpdateInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
   artiste?: Prisma.artisteUpdateOneRequiredWithoutR_servationNestedInput
   studio?: Prisma.studioUpdateOneRequiredWithoutR_servationNestedInput
+  session?: Prisma.sessionUpdateOneRequiredWithoutR_servationNestedInput
 }
 
 export type r_servationUncheckedUpdateInput = {
@@ -363,7 +366,6 @@ export type r_servationCreateManyInput = {
 
 export type r_servationUpdateManyMutationInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type r_servationUncheckedUpdateManyInput = {
@@ -563,6 +565,48 @@ export type NullableBoolFieldUpdateOperationsInput = {
   set?: boolean | null
 }
 
+export type r_servationCreateNestedManyWithoutSessionInput = {
+  create?: Prisma.XOR<Prisma.r_servationCreateWithoutSessionInput, Prisma.r_servationUncheckedCreateWithoutSessionInput> | Prisma.r_servationCreateWithoutSessionInput[] | Prisma.r_servationUncheckedCreateWithoutSessionInput[]
+  connectOrCreate?: Prisma.r_servationCreateOrConnectWithoutSessionInput | Prisma.r_servationCreateOrConnectWithoutSessionInput[]
+  createMany?: Prisma.r_servationCreateManySessionInputEnvelope
+  connect?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+}
+
+export type r_servationUncheckedCreateNestedManyWithoutSessionInput = {
+  create?: Prisma.XOR<Prisma.r_servationCreateWithoutSessionInput, Prisma.r_servationUncheckedCreateWithoutSessionInput> | Prisma.r_servationCreateWithoutSessionInput[] | Prisma.r_servationUncheckedCreateWithoutSessionInput[]
+  connectOrCreate?: Prisma.r_servationCreateOrConnectWithoutSessionInput | Prisma.r_servationCreateOrConnectWithoutSessionInput[]
+  createMany?: Prisma.r_servationCreateManySessionInputEnvelope
+  connect?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+}
+
+export type r_servationUpdateManyWithoutSessionNestedInput = {
+  create?: Prisma.XOR<Prisma.r_servationCreateWithoutSessionInput, Prisma.r_servationUncheckedCreateWithoutSessionInput> | Prisma.r_servationCreateWithoutSessionInput[] | Prisma.r_servationUncheckedCreateWithoutSessionInput[]
+  connectOrCreate?: Prisma.r_servationCreateOrConnectWithoutSessionInput | Prisma.r_servationCreateOrConnectWithoutSessionInput[]
+  upsert?: Prisma.r_servationUpsertWithWhereUniqueWithoutSessionInput | Prisma.r_servationUpsertWithWhereUniqueWithoutSessionInput[]
+  createMany?: Prisma.r_servationCreateManySessionInputEnvelope
+  set?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  disconnect?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  delete?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  connect?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  update?: Prisma.r_servationUpdateWithWhereUniqueWithoutSessionInput | Prisma.r_servationUpdateWithWhereUniqueWithoutSessionInput[]
+  updateMany?: Prisma.r_servationUpdateManyWithWhereWithoutSessionInput | Prisma.r_servationUpdateManyWithWhereWithoutSessionInput[]
+  deleteMany?: Prisma.r_servationScalarWhereInput | Prisma.r_servationScalarWhereInput[]
+}
+
+export type r_servationUncheckedUpdateManyWithoutSessionNestedInput = {
+  create?: Prisma.XOR<Prisma.r_servationCreateWithoutSessionInput, Prisma.r_servationUncheckedCreateWithoutSessionInput> | Prisma.r_servationCreateWithoutSessionInput[] | Prisma.r_servationUncheckedCreateWithoutSessionInput[]
+  connectOrCreate?: Prisma.r_servationCreateOrConnectWithoutSessionInput | Prisma.r_servationCreateOrConnectWithoutSessionInput[]
+  upsert?: Prisma.r_servationUpsertWithWhereUniqueWithoutSessionInput | Prisma.r_servationUpsertWithWhereUniqueWithoutSessionInput[]
+  createMany?: Prisma.r_servationCreateManySessionInputEnvelope
+  set?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  disconnect?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  delete?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  connect?: Prisma.r_servationWhereUniqueInput | Prisma.r_servationWhereUniqueInput[]
+  update?: Prisma.r_servationUpdateWithWhereUniqueWithoutSessionInput | Prisma.r_servationUpdateWithWhereUniqueWithoutSessionInput[]
+  updateMany?: Prisma.r_servationUpdateManyWithWhereWithoutSessionInput | Prisma.r_servationUpdateManyWithWhereWithoutSessionInput[]
+  deleteMany?: Prisma.r_servationScalarWhereInput | Prisma.r_servationScalarWhereInput[]
+}
+
 export type r_servationCreateNestedManyWithoutStudioInput = {
   create?: Prisma.XOR<Prisma.r_servationCreateWithoutStudioInput, Prisma.r_servationUncheckedCreateWithoutStudioInput> | Prisma.r_servationCreateWithoutStudioInput[] | Prisma.r_servationUncheckedCreateWithoutStudioInput[]
   connectOrCreate?: Prisma.r_servationCreateOrConnectWithoutStudioInput | Prisma.r_servationCreateOrConnectWithoutStudioInput[]
@@ -607,12 +651,12 @@ export type r_servationUncheckedUpdateManyWithoutStudioNestedInput = {
 
 export type r_servationCreateWithoutArtisteInput = {
   Etat?: boolean | null
-  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
   studio: Prisma.studioCreateNestedOneWithoutR_servationInput
+  session: Prisma.sessionCreateNestedOneWithoutR_servationInput
 }
 
 export type r_servationUncheckedCreateWithoutArtisteInput = {
@@ -666,12 +710,12 @@ export type r_servationScalarWhereInput = {
 
 export type r_servationCreateWithoutDefault_stackInput = {
   Etat?: boolean | null
-  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   artiste: Prisma.artisteCreateNestedOneWithoutR_servationInput
   studio: Prisma.studioCreateNestedOneWithoutR_servationInput
+  session: Prisma.sessionCreateNestedOneWithoutR_servationInput
 }
 
 export type r_servationUncheckedCreateWithoutDefault_stackInput = {
@@ -713,12 +757,12 @@ export type r_servationUpdateManyWithWhereWithoutDefault_stackInput = {
 
 export type r_servationCreateWithoutFactureInput = {
   Etat?: boolean | null
-  Id_session: number
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
   artiste: Prisma.artisteCreateNestedOneWithoutR_servationInput
   studio: Prisma.studioCreateNestedOneWithoutR_servationInput
+  session: Prisma.sessionCreateNestedOneWithoutR_servationInput
 }
 
 export type r_servationUncheckedCreateWithoutFactureInput = {
@@ -750,12 +794,12 @@ export type r_servationUpdateToOneWithWhereWithoutFactureInput = {
 
 export type r_servationUpdateWithoutFactureInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
   artiste?: Prisma.artisteUpdateOneRequiredWithoutR_servationNestedInput
   studio?: Prisma.studioUpdateOneRequiredWithoutR_servationNestedInput
+  session?: Prisma.sessionUpdateOneRequiredWithoutR_servationNestedInput
 }
 
 export type r_servationUncheckedUpdateWithoutFactureInput = {
@@ -771,12 +815,12 @@ export type r_servationUncheckedUpdateWithoutFactureInput = {
 
 export type r_servationCreateWithoutReservation_equipementInput = {
   Etat?: boolean | null
-  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
   artiste: Prisma.artisteCreateNestedOneWithoutR_servationInput
   studio: Prisma.studioCreateNestedOneWithoutR_servationInput
+  session: Prisma.sessionCreateNestedOneWithoutR_servationInput
 }
 
 export type r_servationUncheckedCreateWithoutReservation_equipementInput = {
@@ -808,12 +852,12 @@ export type r_servationUpdateToOneWithWhereWithoutReservation_equipementInput = 
 
 export type r_servationUpdateWithoutReservation_equipementInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
   artiste?: Prisma.artisteUpdateOneRequiredWithoutR_servationNestedInput
   studio?: Prisma.studioUpdateOneRequiredWithoutR_servationNestedInput
+  session?: Prisma.sessionUpdateOneRequiredWithoutR_servationNestedInput
 }
 
 export type r_servationUncheckedUpdateWithoutReservation_equipementInput = {
@@ -829,12 +873,12 @@ export type r_servationUncheckedUpdateWithoutReservation_equipementInput = {
 
 export type r_servationCreateWithoutReservation_serviceInput = {
   Etat?: boolean | null
-  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
   artiste: Prisma.artisteCreateNestedOneWithoutR_servationInput
   studio: Prisma.studioCreateNestedOneWithoutR_servationInput
+  session: Prisma.sessionCreateNestedOneWithoutR_servationInput
 }
 
 export type r_servationUncheckedCreateWithoutReservation_serviceInput = {
@@ -866,12 +910,12 @@ export type r_servationUpdateToOneWithWhereWithoutReservation_serviceInput = {
 
 export type r_servationUpdateWithoutReservation_serviceInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
   artiste?: Prisma.artisteUpdateOneRequiredWithoutR_servationNestedInput
   studio?: Prisma.studioUpdateOneRequiredWithoutR_servationNestedInput
+  session?: Prisma.sessionUpdateOneRequiredWithoutR_servationNestedInput
 }
 
 export type r_servationUncheckedUpdateWithoutReservation_serviceInput = {
@@ -885,14 +929,61 @@ export type r_servationUncheckedUpdateWithoutReservation_serviceInput = {
   reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
 }
 
-export type r_servationCreateWithoutStudioInput = {
+export type r_servationCreateWithoutSessionInput = {
   Etat?: boolean | null
-  Id_session: number
   facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
   reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
   reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
   default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
   artiste: Prisma.artisteCreateNestedOneWithoutR_servationInput
+  studio: Prisma.studioCreateNestedOneWithoutR_servationInput
+}
+
+export type r_servationUncheckedCreateWithoutSessionInput = {
+  Id_r_servation?: number
+  Etat?: boolean | null
+  Id_stack: number
+  Id_artiste: number
+  Id_studio: number
+  facture?: Prisma.factureUncheckedCreateNestedOneWithoutR_servationInput
+  reservation_equipement?: Prisma.reservation_equipementUncheckedCreateNestedManyWithoutR_servationInput
+  reservation_service?: Prisma.reservation_serviceUncheckedCreateNestedManyWithoutR_servationInput
+}
+
+export type r_servationCreateOrConnectWithoutSessionInput = {
+  where: Prisma.r_servationWhereUniqueInput
+  create: Prisma.XOR<Prisma.r_servationCreateWithoutSessionInput, Prisma.r_servationUncheckedCreateWithoutSessionInput>
+}
+
+export type r_servationCreateManySessionInputEnvelope = {
+  data: Prisma.r_servationCreateManySessionInput | Prisma.r_servationCreateManySessionInput[]
+  skipDuplicates?: boolean
+}
+
+export type r_servationUpsertWithWhereUniqueWithoutSessionInput = {
+  where: Prisma.r_servationWhereUniqueInput
+  update: Prisma.XOR<Prisma.r_servationUpdateWithoutSessionInput, Prisma.r_servationUncheckedUpdateWithoutSessionInput>
+  create: Prisma.XOR<Prisma.r_servationCreateWithoutSessionInput, Prisma.r_servationUncheckedCreateWithoutSessionInput>
+}
+
+export type r_servationUpdateWithWhereUniqueWithoutSessionInput = {
+  where: Prisma.r_servationWhereUniqueInput
+  data: Prisma.XOR<Prisma.r_servationUpdateWithoutSessionInput, Prisma.r_servationUncheckedUpdateWithoutSessionInput>
+}
+
+export type r_servationUpdateManyWithWhereWithoutSessionInput = {
+  where: Prisma.r_servationScalarWhereInput
+  data: Prisma.XOR<Prisma.r_servationUpdateManyMutationInput, Prisma.r_servationUncheckedUpdateManyWithoutSessionInput>
+}
+
+export type r_servationCreateWithoutStudioInput = {
+  Etat?: boolean | null
+  facture?: Prisma.factureCreateNestedOneWithoutR_servationInput
+  reservation_equipement?: Prisma.reservation_equipementCreateNestedManyWithoutR_servationInput
+  reservation_service?: Prisma.reservation_serviceCreateNestedManyWithoutR_servationInput
+  default_stack: Prisma.default_stackCreateNestedOneWithoutR_servationInput
+  artiste: Prisma.artisteCreateNestedOneWithoutR_servationInput
+  session: Prisma.sessionCreateNestedOneWithoutR_servationInput
 }
 
 export type r_servationUncheckedCreateWithoutStudioInput = {
@@ -942,12 +1033,12 @@ export type r_servationCreateManyArtisteInput = {
 
 export type r_servationUpdateWithoutArtisteInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
   studio?: Prisma.studioUpdateOneRequiredWithoutR_servationNestedInput
+  session?: Prisma.sessionUpdateOneRequiredWithoutR_servationNestedInput
 }
 
 export type r_servationUncheckedUpdateWithoutArtisteInput = {
@@ -979,12 +1070,12 @@ export type r_servationCreateManyDefault_stackInput = {
 
 export type r_servationUpdateWithoutDefault_stackInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   artiste?: Prisma.artisteUpdateOneRequiredWithoutR_servationNestedInput
   studio?: Prisma.studioUpdateOneRequiredWithoutR_servationNestedInput
+  session?: Prisma.sessionUpdateOneRequiredWithoutR_servationNestedInput
 }
 
 export type r_servationUncheckedUpdateWithoutDefault_stackInput = {
@@ -1006,6 +1097,43 @@ export type r_servationUncheckedUpdateManyWithoutDefault_stackInput = {
   Id_session?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
+export type r_servationCreateManySessionInput = {
+  Id_r_servation?: number
+  Etat?: boolean | null
+  Id_stack: number
+  Id_artiste: number
+  Id_studio: number
+}
+
+export type r_servationUpdateWithoutSessionInput = {
+  Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
+  reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
+  reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
+  default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
+  artiste?: Prisma.artisteUpdateOneRequiredWithoutR_servationNestedInput
+  studio?: Prisma.studioUpdateOneRequiredWithoutR_servationNestedInput
+}
+
+export type r_servationUncheckedUpdateWithoutSessionInput = {
+  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
+  Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+  facture?: Prisma.factureUncheckedUpdateOneWithoutR_servationNestedInput
+  reservation_equipement?: Prisma.reservation_equipementUncheckedUpdateManyWithoutR_servationNestedInput
+  reservation_service?: Prisma.reservation_serviceUncheckedUpdateManyWithoutR_servationNestedInput
+}
+
+export type r_servationUncheckedUpdateManyWithoutSessionInput = {
+  Id_r_servation?: Prisma.IntFieldUpdateOperationsInput | number
+  Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  Id_stack?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_artiste?: Prisma.IntFieldUpdateOperationsInput | number
+  Id_studio?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
 export type r_servationCreateManyStudioInput = {
   Id_r_servation?: number
   Etat?: boolean | null
@@ -1016,12 +1144,12 @@ export type r_servationCreateManyStudioInput = {
 
 export type r_servationUpdateWithoutStudioInput = {
   Etat?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  Id_session?: Prisma.IntFieldUpdateOperationsInput | number
   facture?: Prisma.factureUpdateOneWithoutR_servationNestedInput
   reservation_equipement?: Prisma.reservation_equipementUpdateManyWithoutR_servationNestedInput
   reservation_service?: Prisma.reservation_serviceUpdateManyWithoutR_servationNestedInput
   default_stack?: Prisma.default_stackUpdateOneRequiredWithoutR_servationNestedInput
   artiste?: Prisma.artisteUpdateOneRequiredWithoutR_servationNestedInput
+  session?: Prisma.sessionUpdateOneRequiredWithoutR_servationNestedInput
 }
 
 export type r_servationUncheckedUpdateWithoutStudioInput = {
@@ -1096,6 +1224,7 @@ export type r_servationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   default_stack?: boolean | Prisma.default_stackDefaultArgs<ExtArgs>
   artiste?: boolean | Prisma.artisteDefaultArgs<ExtArgs>
   studio?: boolean | Prisma.studioDefaultArgs<ExtArgs>
+  session?: boolean | Prisma.sessionDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.R_servationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["r_servation"]>
 
@@ -1118,6 +1247,7 @@ export type r_servationInclude<ExtArgs extends runtime.Types.Extensions.Internal
   default_stack?: boolean | Prisma.default_stackDefaultArgs<ExtArgs>
   artiste?: boolean | Prisma.artisteDefaultArgs<ExtArgs>
   studio?: boolean | Prisma.studioDefaultArgs<ExtArgs>
+  session?: boolean | Prisma.sessionDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.R_servationCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -1130,6 +1260,7 @@ export type $r_servationPayload<ExtArgs extends runtime.Types.Extensions.Interna
     default_stack: Prisma.$default_stackPayload<ExtArgs>
     artiste: Prisma.$artistePayload<ExtArgs>
     studio: Prisma.$studioPayload<ExtArgs>
+    session: Prisma.$sessionPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     Id_r_servation: number
@@ -1484,6 +1615,7 @@ export interface Prisma__r_servationClient<T, Null = never, ExtArgs extends runt
   default_stack<T extends Prisma.default_stackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.default_stackDefaultArgs<ExtArgs>>): Prisma.Prisma__default_stackClient<runtime.Types.Result.GetResult<Prisma.$default_stackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   artiste<T extends Prisma.artisteDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.artisteDefaultArgs<ExtArgs>>): Prisma.Prisma__artisteClient<runtime.Types.Result.GetResult<Prisma.$artistePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   studio<T extends Prisma.studioDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.studioDefaultArgs<ExtArgs>>): Prisma.Prisma__studioClient<runtime.Types.Result.GetResult<Prisma.$studioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  session<T extends Prisma.sessionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.sessionDefaultArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

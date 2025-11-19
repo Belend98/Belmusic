@@ -104,10 +104,12 @@ model r_servation {
   default_stack          default_stack            @relation(fields: [Id_stack], references: [Id_stack], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_1")
   artiste                artiste                  @relation(fields: [Id_artiste], references: [Id_artiste], onDelete: Cascade, onUpdate: NoAction, map: "réservation_ibfk_2")
   studio                 studio                   @relation(fields: [Id_studio], references: [Id_studio], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_3")
+  session                session                  @relation(fields: [Id_session], references: [Id_session], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ifbk4")
 
   @@index([Id_stack], map: "Id_stack")
   @@index([Id_studio], map: "Id_studio")
-  @@index([Id_artiste], map: "réservation_ibfk_2")
+  @@index([Id_artiste], map: "Id_artiste")
+  @@index([Id_session], map:"Id_session")
   @@map("réservation")
 }
 
@@ -116,6 +118,9 @@ model session {
   Heure_debut            DateTime                 @db.Time(0)
   Heure_fin              DateTime                 @db.Time(0)
   Date                   DateTime                 @db.Date
+  
+  r_servation            r_servation[]
+
 
 }
 

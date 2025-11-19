@@ -29,7 +29,8 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
 import { onMounted, ref } from 'vue';
-import Artist from 'src/shared/artist';
+import Artist from 'src/shared/Interface/IModel/artist';
+
 
 const router = useRouter();
 const route = useRoute();
