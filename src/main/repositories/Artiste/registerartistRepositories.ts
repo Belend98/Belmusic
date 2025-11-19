@@ -1,6 +1,6 @@
 import { ipcMain } from "electron";
+import Artist from "src/shared/Interface/IModel/artist";
 import { ArtistRepository } from "./artist_repository";
-import Artist from "src/shared/artist";
 
 export function registerArtistRepo(){
     const artistRepository = new ArtistRepository();

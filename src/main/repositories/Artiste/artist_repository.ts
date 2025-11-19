@@ -1,5 +1,5 @@
-import Artist from "src/shared/artist";
-import { artiste, PrismaClient } from "./prisma/generated/client";
+import Artist from "src/shared/Interface/IModel/artist";
+import { PrismaClient } from "../prisma/generated/client";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 
 
@@ -18,7 +18,7 @@ export class ArtistRepository {
         return artistes.map((t) => {
             return ({
                 id_artist: t.Id_artiste,
-                nom: t.Nom,
+                nom : t.Nom,
                 email: t.Email,
                 telephone: t.T_l_phone,
                 id_type_artist: t.Id_type_artiste,

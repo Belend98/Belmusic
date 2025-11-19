@@ -1,6 +1,7 @@
 import { contextBridge} from 'electron'
 import { artistService } from './artistService'
-import IAllService from 'src/shared/Interface/IAllService'
+import IAllService from 'src/shared/Interface/IServices/IAllService'
+
 
 
 

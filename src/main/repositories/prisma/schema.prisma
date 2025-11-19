@@ -104,7 +104,7 @@ model r_servation {
   reservation_equipement reservation_equipement[]
   reservation_service    reservation_service[]
   default_stack          default_stack            @relation(fields: [Id_stack], references: [Id_stack], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_1")
-  artiste                artiste                  @relation(fields: [Id_artiste], references: [Id_artiste], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_2")
+  artiste                artiste                  @relation(fields: [Id_artiste], references: [Id_artiste], onDelete: Cascade, onUpdate: NoAction, map: "réservation_ibfk_2")
   studio                 studio                   @relation(fields: [Id_studio], references: [Id_studio], onDelete: NoAction, onUpdate: NoAction, map: "réservation_ibfk_3")
 
   @@index([Id_stack], map: "Id_stack")

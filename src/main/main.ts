@@ -2,7 +2,8 @@ import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
 import dotenv from 'dotenv' ;
-import { registerArtistRepo } from './repositories/registerartistRepositories';
+import { registerArtistRepo } from './repositories/Artiste/registerartistRepositories';
+
 
 
 
@@ -61,7 +62,7 @@ app.on('activate', () => {
 dotenv.config();
 
 
-registerArtistRepo(); 
+registerArtistRepo();
 
 
 

@@ -1,4 +1,5 @@
-import Artist from "../artist";
+import Artist from "src/shared/Interface/IModel/artist"
+
 
 export interface IArtistService {
     getAllArtists: () => Promise<Artist[]>,

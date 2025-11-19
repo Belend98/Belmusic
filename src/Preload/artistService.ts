@@ -1,7 +1,7 @@
 import { ipcRenderer } from "electron";
+import Artist from "src/shared/Interface/IModel/artist";
+import { IArtistService } from "src/shared/Interface/IServices/IArtistService";
 
-import Artist from "src/shared/artist";
-import { IArtistService } from "src/shared/Interface/IArtistService";
 
 
 export function artistService(): IArtistService{
