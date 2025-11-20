@@ -4,10 +4,7 @@ import { ReservationRepo } from "./reservationRepository";
 export function registerReservationRepositories(){
     const reservationRepository = new ReservationRepo();
     
-    // ipcMain.handle("reservationRepository: getAllReservation",(e,a) => {
-    //     return reservationRepository.getAllReservation();
-    // })
-
-
-
+    ipcMain.handle("reservationRepository: getAllReservation",(e,a) => {
+        return reservationRepository.getAllReservation();
+    })
 }

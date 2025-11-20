@@ -6,15 +6,11 @@
 
 </template>
 
-<script>
+<script setup>
 
 import navBar from './Component/navBar.vue';
 
-export default{
-  components:{
-    navBar
-  }
-}
+
 
 
 

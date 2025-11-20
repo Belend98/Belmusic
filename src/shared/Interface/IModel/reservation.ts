@@ -2,18 +2,14 @@ import Artist from "./artist";
 import Stack from "./stack";
 import Studio from "./studio";
 
+import { Session } from "./session";
+
 export interface Reservation {
     id_reservation? : number,
-    etat? : Boolean,
-    id_artist: number,
-    id_studio? : number, 
-    id_session?: number,
-    id_stack?: number,
-
+    etat? : boolean,
+ 
     artiste: Artist, 
     studio : Studio,
-    stack: Stack
-
-
-    
+    stack : Stack
+    session : Session
 }
