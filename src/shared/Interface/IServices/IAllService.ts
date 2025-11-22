@@ -3,6 +3,7 @@ import { IReservationService } from "./IResevationService";
 import { ISessionService } from "./ISessionService";
 import { IStackService } from "./IStackService";
 import { IStudioService } from "./IStudioService";
+import { ITypeArtistService } from "./ITypeArtistService";
 
 export default interface IAllService{
   artistService: IArtistService;
@@ -10,6 +11,7 @@ export default interface IAllService{
   sessionService : ISessionService;
   stackService : IStackService;
   studioService : IStudioService;
+  typeArtistService: ITypeArtistService;
 };
 
 declare global {

@@ -5,6 +5,7 @@ import { ReservationService } from './reservationService'
 import { StudioService } from './studioService'
 import { StackService } from './stackService'
 import { SessionService } from './sessionService'
+import { TypeArtistService } from './typeArtistService'
 
 
 
@@ -14,7 +15,8 @@ contextBridge.exposeInMainWorld('api', {
 	reservationService : ReservationService(),
 	studioService : StudioService(),
 	stackService: StackService(),
-	sessionService : SessionService()
+	sessionService : SessionService(),
+    typeArtistService: TypeArtistService()
 	
 
 } as IAllService)
