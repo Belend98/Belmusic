@@ -28,7 +28,6 @@ const reservations = ref<Reservation[]>([])
 onMounted(async ()=>{
     try{
         reservations.value = await window.api.reservationService.getAllReservation();
-        console.log("donnée recup")
     }
     catch(error){
         console.log(error)

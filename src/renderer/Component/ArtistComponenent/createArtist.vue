@@ -17,7 +17,11 @@
             <input v-model="a.email" id="email" name="email" type="email"/>
         </div>
         <div>
-            <label for="telephone"> Téléphone :</label>
+            <label for="type_artist"> Type d'artiste : </label>
+            <input v-model="a.id_type_artist" id="type_artist" name="type_artist" type="text"/>
+        </div> 
+        <div>
+            <label for=""> Téléphone :</label>
             <input v-model="a.telephone" id="telephone" name="telephone" type="text"/>
         </div> 
         
@@ -48,6 +52,10 @@ function onSubmit(){
 }
 
 async function creation(): Promise<void>{
+    if (!a.value) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
     const jsArtist = {...a.value}
     try{
         await window.api.artistService.createArtist(jsArtist)  

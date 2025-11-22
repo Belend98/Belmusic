@@ -4,6 +4,8 @@ import started from 'electron-squirrel-startup';
 import dotenv from 'dotenv' ;
 import { registerArtistRepo } from './repositories/Artiste/registerartistRepositories';
 import { registerReservationRepositories } from './repositories/Reservation/registerReservationRepository';
+import { registerStackRepositories } from './repositories/Stack/registerStackRepository';
+import { registerStudioRepositories } from './repositories/Studio/registerStudioRepository';
 
 
 
@@ -65,6 +67,8 @@ dotenv.config();
 
 registerArtistRepo();
 registerReservationRepositories();
+registerStackRepositories();
+registerStudioRepositories();
 
 
 

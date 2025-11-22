@@ -2,7 +2,7 @@ import Artist from "./artist";
 import Stack from "./stack";
 import Studio from "./studio";
 
-import { Session } from "./session";
+import  Session  from "./session";
 
 export interface Reservation {
     id_reservation? : number,

@@ -1,4 +1,4 @@
-export interface Session {
+export default interface Session {
     id_session?: number;
     heure_debut: Date;
     heure_fin: Date;

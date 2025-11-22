@@ -63,6 +63,7 @@ export class ReservationRepo {
         const reservation  = await this.dbclient.r_servation.findUnique({
             where : {
                 Id_r_servation : id
+
             },
             include: {
                 artiste: true,
@@ -161,9 +162,9 @@ export class ReservationRepo {
 
 
 
-    public async updateReservation(r: Reservation): Promise<Reservation> {
+    public async updateReservation(id: number, r: Reservation): Promise<Reservation> {
         const updatedRes = await this.dbclient.r_servation.update({
-            where: { Id_r_servation: r.id_reservation },
+            where: { Id_r_servation: id },
             data: {
                 Etat: r.etat,
                 artiste: {

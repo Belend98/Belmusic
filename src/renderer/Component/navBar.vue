@@ -10,7 +10,7 @@
             <RouterLink to="/list">Liste Artistes</RouterLink>
             <RouterLink to="/dashboard">Tableau de Bord</RouterLink>
             <RouterLink to="/calendar">Calendrier</RouterLink>
-            <RouterLink to="/reservation" class="cta">Réserver</RouterLink>
+            <RouterLink to="/reserver" class="cta">Réserver</RouterLink>
         </nav>
     </header>
 </template>
