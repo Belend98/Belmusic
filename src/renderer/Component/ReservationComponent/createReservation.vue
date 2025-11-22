@@ -60,15 +60,17 @@
 import { ref, onMounted, toRaw, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { Reservation } from 'src/shared/Interface/IModel/reservation';
-import Artist from 'src/shared/Interface/IModel/artist';
-import Studio from 'src/shared/Interface/IModel/studio';
-import Stack from 'src/shared/Interface/IModel/stack';
 import Session from 'src/shared/Interface/IModel/session';
+import { useArtists } from '../../Composables/artistes';
+import { useStudios } from '../../Composables/studios';
+import { useStacks } from '../../Composables/stacks';
+import { useReservations } from '../../Composables/reservations';
 
 const router = useRouter();
-const artists = ref<Artist[]>([]);
-const studios = ref<Studio[]>([]);
-const stacks = ref<Stack[]>([]);
+const { artists, getAllArtists } = useArtists();
+const { studios, getAllStudios } = useStudios();
+const { stacks, getAllStacks } = useStacks();
+const { createReservation } = useReservations();
 
 const artistId = ref<number | string>('');
 const studioId = ref<number | string>('');
@@ -86,24 +88,19 @@ const endHours = computed(() => {
 
 onMounted(async () => {
     try {
-        artists.value = await window.api.artistService.getAllArtists();
-
-
+        await getAllArtists();
     } catch (error) {
         console.error(error);
     }
 
     try {
-
-        studios.value = await window.api.studioService.getAllStudios();
+        await getAllStudios();
     } catch (error) {
         console.error(error);
     }
 
     try {
-
-        stacks.value = await window.api.stackService.getAllStacks();
-
+        await getAllStacks();
     } catch (error) {
         console.error(error);
     }
@@ -137,8 +134,8 @@ async function onSubmit() {
     };
 
     try {
-        await window.api.reservationService.createReservation(newReservation);
-        router.push('/reservations');
+        await createReservation(newReservation);
+        router.push('/dashboard');
     } catch (error) {
         console.error("Erreur lors de la création de la réservation:", error);
         alert("Erreur lors de la création. Vérifiez la console.");

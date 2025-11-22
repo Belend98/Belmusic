@@ -20,7 +20,7 @@
             <label for="type_artist"> Type d'artiste : </label>
             <select v-model="a.id_type_artist" id="type_artist" name="type_artist" required>
                 <option disabled :value="0">Sélectionnez un type</option>
-                <option v-for="type in types" :key="type.id_type_artiste" :value="type.id_type_artiste">
+                <option v-for="type in typeArtistes" :key="type.id_type_artiste" :value="type.id_type_artiste">
                     {{ type.nom }}
                 </option>
             </select>
@@ -39,11 +39,13 @@
 import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import Artist from 'src/shared/Interface/IModel/artist';
-import TypeArtist from 'src/shared/Interface/IModel/typeArtist';
+import { useTypeArtistes } from '../../Composables/typeArtistes';
+import { useArtists } from '../../Composables/artistes';
 
 
 const router = useRouter();
-const types = ref<TypeArtist[]>([]);
+const { typeArtistes, getAllTypeArtistes } = useTypeArtistes();
+const { createArtist } = useArtists();
 
 const a = ref<Artist>({
     nom: '',
@@ -56,7 +58,7 @@ const a = ref<Artist>({
 
 onMounted(async () => {
     try {
-        types.value = await window.api.typeArtistService.getAllTypeArtist();
+        await getAllTypeArtistes();
     } catch (error) {
         console.error(error);
     }
@@ -73,7 +75,7 @@ async function creation(): Promise<void>{
     }
     const jsArtist = {...a.value}
     try{
-        await window.api.artistService.createArtist(jsArtist)  
+        await createArtist(jsArtist)  
         router.push('/list')
     }
     catch(error) {

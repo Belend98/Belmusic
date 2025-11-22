@@ -43,11 +43,11 @@
 </template>
 
 <script setup lang="ts">
-import Artist from 'src/shared/Interface/IModel/artist';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useArtists } from '../../Composables/artistes';
 
-const artists = ref<Array<Artist>>([]);
+const { artists, getAllArtists, deleteArtist } = useArtists();
 const loading = ref(true);
 const router = useRouter();
 
@@ -57,11 +57,9 @@ const redirectCreate = () => {
 
 onMounted(async () => {
   try {
-    const res = await window.api.artistService.getAllArtists();
-    artists.value = res || [];
+    await getAllArtists();
   } catch (err) {
     console.error('Erreur chargement artistes', err);
-    artists.value = [];
   } finally {
     loading.value = false;
   }
@@ -69,8 +67,7 @@ onMounted(async () => {
 
 async function deleteOne(id: number) {
     try {
-      await window.api.artistService.deleteArtist(id);0
-      artists.value = await window.api.artistService.getAllArtists();
+      await deleteArtist(id);
     } catch (error) {
       console.error(error);
     }

@@ -30,11 +30,13 @@
 import { useRoute, useRouter } from 'vue-router';
 import { onMounted, ref } from 'vue';
 import Artist from 'src/shared/Interface/IModel/artist';
+import { useArtists } from '../../Composables/artistes';
 
 
 const router = useRouter();
 const route = useRoute();
 const artistId = Number(route.params.id)
+const { getArtistById, updateArtist } = useArtists();
 
 
 const a = ref<Artist>({
@@ -49,7 +51,7 @@ const a = ref<Artist>({
 
 onMounted(async () => {
     try {
-        const artistData = await window.api.artistService.getArtistById(artistId)
+        const artistData = await getArtistById(artistId)
 
         if (artistData) {
             a.value = artistData;
@@ -66,7 +68,7 @@ onMounted(async () => {
 async function onSubmit() {
     const jsArtist = { ...a.value }
     try {
-        await window.api.artistService.updateArtist(artistId, jsArtist)
+        await updateArtist(artistId, jsArtist)
         router.push('/list')
     }
     catch (error) {
