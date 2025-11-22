@@ -117,7 +117,11 @@ export class ReservationRepo {
                     connect: { Id_stack: r.stack.id_stack }
                 },
                 session: {
-                    connect: { Id_session: r.session.id_session }
+                    create: {
+                        Date: new Date(r.session.date),
+                        Heure_debut: new Date(r.session.heure_debut),
+                        Heure_fin: new Date(r.session.heure_fin)
+                    }
                 }
             },
             include: {

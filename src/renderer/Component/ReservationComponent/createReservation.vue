@@ -15,7 +15,7 @@
             <select v-model="studioId" id="studio" required>
                 <option disabled value="">Sélectionnez un studio</option>
                 <option v-for="studio in studios" :key="studio.id_studio" :value="studio.id_studio">
-                    {{ studio.nom }} {{ studio.etat }}
+                    {{ studio.nom }} 
                 </option>
             </select>
         </div>
@@ -37,12 +37,18 @@
                 <input v-model="date" id="date" type="date" required />
             </div>
             <div>
-                <label for="startTime">Heure de début :</label>
-                <input v-model="heure_debut" id="startTime" type="time" required />
+                <label for="startHour">Heure de début :</label>
+                <select v-model="selectedStartHour" id="startHour" required>
+                    <option disabled value="">Heure de début</option>
+                    <option v-for="h in startHours" :key="h" :value="h">{{ h }}h00</option>
+                </select>
             </div>
             <div>
-                <label for="endTime">Heure de fin :</label>
-                <input v-model="heure_fin" id="endTime" type="time" required />
+                <label for="endHour">Heure de fin :</label>
+                <select v-model="selectedEndHour" id="endHour" required>
+                    <option disabled value="">Heure de fin</option>
+                    <option v-for="h in endHours" :key="h" :value="h">{{ h }}h00</option>
+                </select>
             </div>
         </div>
 
@@ -51,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, toRaw, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { Reservation } from 'src/shared/Interface/IModel/reservation';
 import Artist from 'src/shared/Interface/IModel/artist';
@@ -68,8 +74,15 @@ const artistId = ref<number | string>('');
 const studioId = ref<number | string>('');
 const stackId = ref<number | string>('');
 const date = ref('');
-const heure_debut = ref('');
-const heure_fin = ref('');
+const selectedStartHour = ref<number | string>('');
+const selectedEndHour = ref<number | string>('');
+
+const startHours = Array.from({ length: 12 }, (_, i) => i + 10); // 10 to 21
+const endHours = computed(() => {
+    if (!selectedStartHour.value) return Array.from({ length: 13 }, (_, i) => i + 10);
+    const start = Number(selectedStartHour.value);
+    return Array.from({ length: 22 - start }, (_, i) => start + 1 + i); // start+1 to 22
+});
 
 onMounted(async () => {
     try {
@@ -97,7 +110,7 @@ onMounted(async () => {
 });
 
 async function onSubmit() {
-    if (!artistId.value || !studioId.value || !stackId.value || !date.value || !heure_debut.value || !heure_fin.value) {
+    if (!artistId.value || !studioId.value || !stackId.value || !date.value || !selectedStartHour.value || !selectedEndHour.value) {
         alert("Veuillez remplir tous les champs.");
         return;
     }
@@ -106,17 +119,20 @@ async function onSubmit() {
     const studio = studios.value.find(a => a.id_studio === Number(studioId.value));
     const stack = stacks.value.find((a)=> a.id_stack === Number(stackId.value));
 
+    const startH = Number(selectedStartHour.value);
+    const endH = Number(selectedEndHour.value);
+
     const session: Session = {
         date: new Date(date.value),
-        heure_debut: new Date(`${date.value}T${heure_debut.value}`),
-        heure_fin: new Date(`${date.value}T${heure_fin.value}`)
+        heure_debut: new Date(`${date.value}T${startH.toString().padStart(2, '0')}:00:00`),
+        heure_fin: new Date(`${date.value}T${endH.toString().padStart(2, '0')}:00:00`)
     };
 
     const newReservation: Reservation = {
         etat: true,
-        artiste: artist!,
-        studio: studio,
-        stack: stack,
+        artiste: toRaw(artist!),
+        studio: toRaw(studio!),
+        stack: toRaw(stack!),
         session: session
     };
 
