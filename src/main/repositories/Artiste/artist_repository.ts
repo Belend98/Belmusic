@@ -13,7 +13,11 @@ export class ArtistRepository {
         this.dbclient = new PrismaClient({adapter} );
     }
     public async getAllArtists(): Promise<Artist[]> {
-        const artistes = await this.dbclient.artiste.findMany();
+        const artistes = await this.dbclient.artiste.findMany({
+            include: {
+                type_artiste: true
+            }
+        });
 
         return artistes.map((t) => {
             return ({
@@ -23,7 +27,11 @@ export class ArtistRepository {
                 telephone: t.T_l_phone,
                 id_type_artist: t.Id_type_artiste,
                 prenom: t.Pr_nom,
-                pseudo: t.Pseudo
+                pseudo: t.Pseudo,
+                type_artiste: {
+                    id_type_artiste: t.type_artiste.Id_type_artiste,
+                    nom: t.type_artiste.nom_type_artiste
+                }
 
             }); //Ne pas mettre unknow, sinon ça bypass le contrat d'interface
         });

@@ -20,6 +20,7 @@
           <tr>
             <th>Nom Complet</th>
             <th>Pseudo</th>
+            <th>Type</th>
             <th>Email</th>
             <th class="actions-column"></th>
           </tr>
@@ -28,6 +29,7 @@
           <tr v-for="a in artists" :key="a.id_artist">
             <td>{{ a.nom }} {{ a.prenom }}</td>
             <td>{{ a.pseudo || '-' }}</td>
+            <td>{{ a.type_artiste?.nom || '-' }}</td>
             <td>{{ a.email }}</td>
             <td class="actions-cell">
               <RouterLink :to="`/update/${a.id_artist}`" class="action-btn edit-btn">Modifier</RouterLink>

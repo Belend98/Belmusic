@@ -18,7 +18,12 @@
         </div>
         <div>
             <label for="type_artist"> Type d'artiste : </label>
-            <input v-model="a.id_type_artist" id="type_artist" name="type_artist" type="text"/>
+            <select v-model="a.id_type_artist" id="type_artist" name="type_artist" required>
+                <option disabled :value="0">Sélectionnez un type</option>
+                <option v-for="type in types" :key="type.id_type_artiste" :value="type.id_type_artiste">
+                    {{ type.nom }}
+                </option>
+            </select>
         </div> 
         <div>
             <label for=""> Téléphone :</label>
@@ -32,20 +37,30 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import Artist from 'src/shared/Interface/IModel/artist';
+import TypeArtist from 'src/shared/Interface/IModel/typeArtist';
 
 
 const router = useRouter();
+const types = ref<TypeArtist[]>([]);
 
 const a = ref<Artist>({
     nom: '',
     prenom: '',
     email: '',
     telephone: '',
-    id_type_artist: 1,
+    id_type_artist: 0,
     pseudo: ''
 })
+
+onMounted(async () => {
+    try {
+        types.value = await window.api.typeArtistService.getAllTypeArtist();
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 function onSubmit(){
     
@@ -78,7 +93,7 @@ form {
 }
 
 label { display: block; font-size: 0.95rem; margin-bottom: 0.25rem; }
-input { width: 100%; padding: 0.5rem 0.6rem; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+input, select { width: 100%; padding: 0.5rem 0.6rem; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
 button { margin-top: 0.6rem; padding: 0.6rem 1rem; border-radius: 8px; background: #4f46e5; color: #fff; border: none; cursor: pointer; }
 
 @media (max-width: 420px) {

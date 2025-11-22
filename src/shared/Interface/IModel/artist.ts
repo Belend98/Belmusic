@@ -1,3 +1,5 @@
+import TypeArtist from "./typeArtist";
+
 export default interface Artist{
     id_artist?: number;
     nom: string;
@@ -6,4 +8,5 @@ export default interface Artist{
     telephone: string
     id_type_artist: number
     pseudo: string
+    type_artiste?: TypeArtist
 }
