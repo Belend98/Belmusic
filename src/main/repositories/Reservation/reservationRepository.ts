@@ -104,6 +104,38 @@ export class ReservationRepo {
     }
 
     public async createReservation(r: Reservation): Promise<Reservation> {
+        const sessionDate = new Date(r.session.date);
+        const startInput = new Date(r.session.heure_debut);
+        const endInput = new Date(r.session.heure_fin);
+
+        
+        const getMinutes = (d: Date) => d.getHours() * 60 + d.getMinutes();
+        const newStart = getMinutes(startInput);
+        const newEnd = getMinutes(endInput);
+
+        
+        const existingReservations = await this.dbclient.r_servation.findMany({
+            where: {
+                Id_studio: r.studio.id_studio,
+                session: {
+                    Date: sessionDate
+                }
+            },
+            include: {
+                session: true
+            }
+        });
+
+        for (const res of existingReservations) {
+            const existingStart = getMinutes(res.session.Heure_debut);
+            const existingEnd = getMinutes(res.session.Heure_fin);
+
+            
+            if (newStart < existingEnd && newEnd > existingStart) {
+                throw new Error("Impossible de réserver : le studio est déjà occupé sur ce créneau.");
+            }
+        }
+
         const newRes = await this.dbclient.r_servation.create({
             data: {
                 Etat: true,
@@ -223,11 +255,19 @@ export class ReservationRepo {
     }
 
     public async deleteReservation(id: number) : Promise<void> {
-        await this.dbclient.r_servation.delete({
+        const deletedRes = await this.dbclient.r_servation.delete({
             where : {
                 Id_r_servation : id
             }
         })
+
+        if (deletedRes.Id_session) {
+            await this.dbclient.session.delete({
+                where : {
+                    Id_session : deletedRes.Id_session
+                }
+            })
+        }
     }
 
     public async toggleReservation(id: number): Promise<boolean> {

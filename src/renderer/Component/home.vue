@@ -16,7 +16,7 @@ import img from '../image/image studio.png'
 
 const router = useRouter();
 const handleclick = () => {
-    router.push('/reservation');
+    router.push('/reserver');
 
 }
 
@@ -65,7 +65,7 @@ const handleclick = () => {
 }
 
 .reserve-btn {
-    background: #4f46e5; /* indigo-600 */
+    background: #4f46e5; 
     color: white;
     padding: 0.6rem 1rem;
     border: none;
@@ -76,7 +76,7 @@ const handleclick = () => {
 }
 
 .reserve-btn:hover {
-    background: #3427c6; /* indigo-700 */
+    background: #3427c6; 
     border-radius:50px;
 }
 

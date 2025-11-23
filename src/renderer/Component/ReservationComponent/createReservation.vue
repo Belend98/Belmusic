@@ -1,13 +1,21 @@
 <template>
     <form @submit.prevent="onSubmit">
-        <div>
+        <div style="position: relative;">
             <label for="artist">Artiste :</label>
-            <select v-model="artistId" id="artist" required>
-                <option disabled value="">Sélectionnez un artiste</option>
-                <option v-for="artist in artists" :key="artist.id_artist" :value="artist.id_artist">
+            <input 
+                type="text" 
+                v-model="inputArtist" placeholder="Rechercher un artiste..." @focus="showArtistList = true" 
+                @input="showArtistList = true" 
+            />
+            <ul v-if="showArtistList && filteredArtists.length > 0" class="suggestions-list">
+                <li 
+                    v-for="artist in filteredArtists" 
+                    :key="artist.id_artist" 
+                    @click="selectArtist(artist)"
+                >
                     {{ artist.nom }} {{ artist.prenom }} ({{ artist.pseudo }})
-                </option>
-            </select>
+                </li>
+            </ul>
         </div>
 
         <div>
@@ -65,6 +73,7 @@ import { useArtists } from '../../Composables/artistes';
 import { useStudios } from '../../Composables/studios';
 import { useStacks } from '../../Composables/stacks';
 import { useReservations } from '../../Composables/reservations';
+import Artist from 'src/shared/Interface/IModel/artist';
 
 const router = useRouter();
 const { artists, getAllArtists } = useArtists();
@@ -73,17 +82,38 @@ const { stacks, getAllStacks } = useStacks();
 const { createReservation } = useReservations();
 
 const artistId = ref<number | string>('');
+const inputArtist = ref('');
+const showArtistList = ref(false);
+
+const filteredArtists = computed(() => {
+    if (!inputArtist.value) {
+        return artists.value;
+    }
+    const query = inputArtist.value.toLowerCase();
+    return artists.value.filter(artist => 
+        artist.nom.toLowerCase().includes(query) || 
+        artist.prenom.toLowerCase().includes(query) || 
+        (artist.pseudo && artist.pseudo.toLowerCase().includes(query))
+    );
+});
+
+function selectArtist(artist: Artist) {
+    artistId.value = artist.id_artist!;
+    inputArtist.value = `${artist.nom} ${artist.prenom} (${artist.pseudo})`;
+    showArtistList.value = false;
+}
+
 const studioId = ref<number | string>('');
 const stackId = ref<number | string>('');
 const date = ref('');
 const selectedStartHour = ref<number | string>('');
 const selectedEndHour = ref<number | string>('');
 
-const startHours = Array.from({ length: 12 }, (_, i) => i + 10); // 10 to 21
+const startHours = Array.from({ length: 12 }, (_, i) => i + 10); 
 const endHours = computed(() => {
     if (!selectedStartHour.value) return Array.from({ length: 13 }, (_, i) => i + 10);
     const start = Number(selectedStartHour.value);
-    return Array.from({ length: 22 - start }, (_, i) => start + 1 + i); // start+1 to 22
+    return Array.from({ length: 22 - start }, (_, i) => start + 1 + i); 
 });
 
 onMounted(async () => {
@@ -137,8 +167,9 @@ async function onSubmit() {
         await createReservation(newReservation);
         router.push('/dashboard');
     } catch (error) {
-        console.error("Erreur lors de la création de la réservation:", error);
-        alert("Erreur lors de la création. Vérifiez la console.");
+        console.error(error);
+        const msg = error.message ? error.message : "Une erreur est survenue.";
+        alert(msg);
     }
 }
 </script>
@@ -208,6 +239,33 @@ button:hover {
     margin-bottom: 1rem;
     font-size: 1.1rem;
     color: #1f2937;
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0 0 6px 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-list li {
+    padding: 0.5rem 0.6rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.suggestions-list li:hover {
+    background-color: #f3f4f6;
 }
 
 @media (max-width: 420px) {

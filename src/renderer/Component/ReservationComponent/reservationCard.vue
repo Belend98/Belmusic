@@ -21,6 +21,7 @@
                 <th>Artiste</th>
                 <th>Studio</th>
                 <th>Stack</th>
+                <th>Programmation</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +30,9 @@
                 <td>{{ r.artiste.nom }} {{ r.artiste.prenom }}</td>
                 <td>{{ r.studio.nom }}</td>
                 <td>{{ r.stack.nom }}</td>
+                <td>{{ r.session.date.toDateString() }} -- {{ r.session.heure_debut.toLocaleTimeString() }} -- {{ r.session.heure_fin.toLocaleTimeString() }}</td>
                 <td class="actions-cell">
-                    <RouterLink :to="`/updateReservation/${r.id_reservation}`" class="action-btn edit-btn">Modifier</RouterLink>
+                    <!-- <RouterLink :to="" class="action-btn edit-btn">Modifier</RouterLink> -->
                     <button @click="deleteOne(r.id_reservation!)" class="action-btn delete-btn">Supprimer</button>
                 </td>
             </tr>
@@ -50,7 +52,7 @@ const loading = ref(true);
 const router = useRouter();
 
 const redirectCreate = () => {
-  router.push('/createReservation');
+  router.push('/reserver');
 };
 
 onMounted(async ()=>{
@@ -66,13 +68,11 @@ onMounted(async ()=>{
 })
 
 async function deleteOne(id: number) {
-    if(confirm("Voulez-vous vraiment supprimer cette réservation ?")) {
         try {
             await deleteReservation(id);
         } catch (error) {
             console.error(error);
         }
-    }
 }
 
 </script>

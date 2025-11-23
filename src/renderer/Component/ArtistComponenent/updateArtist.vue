@@ -2,7 +2,7 @@
     <form @submit.prevent="onSubmit">
         <div>
             <label for="nom"> Nom :</label>
-            <input v-model="a.nom" id="nom" name="name" type="text" />
+            <input v-model="a.nom" id="nom" name="name" type="text"  />
         </div>
         <div>
             <label for="prenom"> Prénom :</label>
