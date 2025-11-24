@@ -7,6 +7,7 @@ import CreateArtist from "./Component/ArtistComponenent/createArtist.vue";
 import Artists from "./Component/ArtistComponenent/artists.vue";
 import UpdateArtist from "./Component/ArtistComponenent/updateArtist.vue";
 import CreateReservation from "./Component/ReservationComponent/createReservation.vue";
+import UpdateReservation from "./Component/ReservationComponent/updateReservation.vue";
 
 
 
@@ -15,6 +16,7 @@ const routes = [
     { path: '/update/:id', component: UpdateArtist },
     { path: '/creation', component: CreateArtist },
     { path: '/reserver', component: CreateReservation },
+    { path: '/updateReservation/:id', component: UpdateReservation },
     { path: '/', component: Home },
     { path: '/dashboard', component: DashBoard },
     { path: '/calendar', component: Calendar },

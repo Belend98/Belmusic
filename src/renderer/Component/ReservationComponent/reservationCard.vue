@@ -7,10 +7,32 @@
       </button>
     </header>
 
+    <div class="filters-container">
+      <div class="filter-group">
+        <label>Filtrer par artiste:</label>
+        <select v-model="filterArtist" class="filter-select">
+          <option value="">Tous les artistes</option>
+          <option v-for="a in artists" :key="a.id_artist" :value="a.id_artist">
+            {{ a.nom }} {{ a.prenom }} ({{ a.pseudo }})
+          </option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label>Filtrer par studio:</label>
+        <select v-model="filterStudio" class="filter-select">
+          <option value="">Tous les studios</option>
+          <option v-for="s in studios" :key="s.id_studio" :value="s.id_studio">
+            {{ s.nom }}
+          </option>
+        </select>
+      </div>
+    </div>
+
     <div class="content-panel">
       <div v-if="loading" class="loading-state">Chargement des données...</div>
       
-      <div v-else-if="reservations.length === 0" class="empty-state">
+      <div v-else-if="filteredReservations.length === 0" class="empty-state">
         <p>Aucune réservation trouvée.</p>
         <span>Cliquez sur "Ajouter une réservation" pour commencer.</span>
       </div>
@@ -25,14 +47,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="r in reservations" :key="r.id_reservation">
+            <tr v-for="r in filteredReservations" :key="r.id_reservation">
 
                 <td>{{ r.artiste.nom }} {{ r.artiste.prenom }}</td>
                 <td>{{ r.studio.nom }}</td>
                 <td>{{ r.stack.nom }}</td>
                 <td>{{ r.session.date.toDateString() }} -- {{ r.session.heure_debut.toLocaleTimeString() }} -- {{ r.session.heure_fin.toLocaleTimeString() }}</td>
                 <td class="actions-cell">
-                    <!-- <RouterLink :to="" class="action-btn edit-btn">Modifier</RouterLink> -->
+                    <RouterLink :to="`/updateReservation/${r.id_reservation}`" class="action-btn edit-btn">Modifier</RouterLink>
                     <button @click="deleteOne(r.id_reservation!)" class="action-btn delete-btn">Supprimer</button>
                 </td>
             </tr>
@@ -43,13 +65,29 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useReservations } from '../../Composables/reservations';
+import { useArtists } from '../../Composables/artistes';
+import { useStudios } from '../../Composables/studios';
 
 const { reservations, getAllReservations, deleteReservation } = useReservations();
+const { artists, getAllArtists } = useArtists();
+const { studios, getAllStudios } = useStudios();
+
 const loading = ref(true);
 const router = useRouter();
+
+const filterArtist = ref('');
+const filterStudio = ref('');
+
+const filteredReservations = computed(() => {
+    return reservations.value.filter(r => {
+        const matchArtist = filterArtist.value === '' || r.artiste.id_artist === Number(filterArtist.value);
+        const matchStudio = filterStudio.value === '' || r.studio.id_studio === Number(filterStudio.value);
+        return matchArtist && matchStudio;
+    });
+});
 
 const redirectCreate = () => {
   router.push('/reserver');
@@ -57,7 +95,11 @@ const redirectCreate = () => {
 
 onMounted(async ()=>{
     try{
-        await getAllReservations();
+        await Promise.all([
+            getAllReservations(),
+            getAllArtists(),
+            getAllStudios()
+        ]);
     }
     catch(error){
         console.log(error)
@@ -206,5 +248,41 @@ async function deleteOne(id: number) {
 .delete-btn:hover {
   background-color: #fef2f2;
   border-color: #fecaca;
+}
+
+.filters-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
 </style>

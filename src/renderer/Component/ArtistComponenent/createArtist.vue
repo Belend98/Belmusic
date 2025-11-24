@@ -2,11 +2,11 @@
     <form @submit.prevent="onSubmit" >
         <div>
             <label for="nom"> Nom :</label>
-            <input v-model="a.nom" id="nom" name="name" type="text"/>
+            <input v-model="a.nom" id="nom" name="name" type="text" required/>
         </div>
         <div>
             <label for="prenom"> Prénom :</label>
-            <input v-model="a.prenom" id="prenom" name="prenom" type="text"/>
+            <input v-model="a.prenom" id="prenom" name="prenom" type="text" required/>
         </div>
         <div>
             <label for="pseudo"> Blaze :</label>
@@ -14,7 +14,7 @@
         </div>
         <div>
             <label for="email"> E-mail :</label>
-            <input v-model="a.email" id="email" name="email" type="email"/>
+            <input v-model="a.email" id="email" name="email" type="email" required/>
         </div>
         <div>
             <label for="type_artist"> Type d'artiste : </label>
@@ -26,8 +26,10 @@
             </select>
         </div> 
         <div>
-            <label for=""> Téléphone :</label>
-            <input v-model="a.telephone" id="telephone" name="telephone" type="text"/>
+            <label for="telephone"> Téléphone :</label>
+            <input v-model="a.telephone" id="telephone" name="telephone" type="text" required placeholder="+32470123456"
+                pattern="^\+[0-9]{8,15}$"
+                title="Format international requis: (ex: +32470123456)"/>
         </div> 
         
         <button @click="creation" type="submit" >Enregistrer l'artiste</button>
@@ -69,10 +71,17 @@ function onSubmit(){
 }
 
 async function creation(): Promise<void>{
-    if (!a.value) {
-        alert("Veuillez remplir tous les champs.");
+    if (!a.value.nom || !a.value.prenom || !a.value.email || !a.value.telephone || !a.value.id_type_artist) {
+        alert("Veuillez remplir tous les champs obligatoires.");
         return;
     }
+
+    const phoneRegex = /^\+[0-9]{8,15}$/;
+    if (!phoneRegex.test(a.value.telephone)) {
+        alert("Le numéro de téléphone doit être au format international (+XX..., sans espaces ni tirets).");
+        return;
+    }
+
     const jsArtist = {...a.value}
     try{
         await createArtist(jsArtist)  
