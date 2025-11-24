@@ -23,7 +23,7 @@ Avant de commencer, les prérequis suivants sont nécessaires :
     *   Format : `DATABASE_URL="mysql://UTILISATEUR:MOT_DE_PASSE@HOTE:PORT/NOM_DE_LA_BASE"`
     *   Exemple : `DATABASE_URL="mysql://admin:admin@localhost:3306/belmusic"`
 
-    ### Option CodeFirts : Création via migration Prisma
+    ### Option CodeFirst : Création via migration Prisma
 *   Faites une migration (création de la base de données à partir du schéma Prisma) en utilisant la commande suivante : `npx prisma migrate reset`. Cette commande génère un client et ajoute des données pour tester l'application. Sélectionnez 'yes' lors de la demande d'exécution de la commande.
 
     ### Option DB First : Création via script SQL (recommandé : Extension mysql database client)
