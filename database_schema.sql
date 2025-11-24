@@ -1,4 +1,3 @@
-
 CREATE TABLE `type_artiste` (
     `Id_type_artiste` INT NOT NULL,
     `nom_type_artiste` VARCHAR(50),
@@ -132,5 +131,3 @@ CREATE TABLE `studio_ingé` (
     INDEX `Id_studio` (`Id_studio`),
     CONSTRAINT `studio_ingé_ibfk_2` FOREIGN KEY (`Id_studio`) REFERENCES `studio`(`Id_studio`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-SET FOREIGN_KEY_CHECKS = 1;

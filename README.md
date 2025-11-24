@@ -26,12 +26,11 @@ Avant de commencer, les prérequis suivants sont nécessaires :
     ### Option CodeFirts : Création via migration Prisma
 *   Faites une migration (création de la base de données à partir du schéma Prisma) en utilisant la commande suivante : `npx prisma migrate reset`. Cette commande génère un client et ajoute des données pour tester l'application. Sélectionnez 'yes' lors de la demande d'exécution de la commande.
 
-    ### Option DB First : Création via script SQL
+    ### Option DB First : Création via script SQL (recommandé : Extension mysql database client)
     Si vous ne souhaitez pas utiliser les migrations Prisma, vous pouvez initialiser la structure de la base de données via le script SQL fourni :
-    1.  Assurez-vous d'avoir créé la base de données `Belmusic` (`CREATE DATABASE Belmusic;`).
-    2.  Importez ou exécutez le fichier `database_schema.sql` (situé à la racine du projet) dans votre base de données pour créer les tables.
-    3.  (Optionnel) Pour insérer des données de test, exécutez le fichier `database_data.sql` (situé à la racine du projet).
-    4.  Générez le client Prisma nécessaire au fonctionnement de l'application : `npx prisma generate`.
+    1.  Importez ou exécutez le fichier `database_schema.sql` (situé à la racine du projet) dans votre base de données pour créer les tables.
+    2.  Pour insérer des données de test, exécutez le fichier `database_data.sql` (situé à la racine du projet).
+    3.  Générez le client Prisma nécessaire au fonctionnement de l'application : `npx prisma generate`.
 
 ## Lancement du projet
 
