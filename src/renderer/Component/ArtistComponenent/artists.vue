@@ -7,10 +7,22 @@
       </button>
     </header>
 
+    <div class="filters-container">
+      <div class="filter-group">
+        <label>Rechercher (Nom ou Pseudo):</label>
+        <input 
+          v-model="inputArtist" 
+          type="text" 
+          class="filter-input" 
+          placeholder="Rechercher..." 
+        />
+      </div>
+    </div>
+
     <div class="content-panel">
       <div v-if="loading" class="loading-state">Chargement des données...</div>
       
-      <div v-else-if="artists.length === 0" class="empty-state">
+      <div v-else-if="filteredArtists.length === 0" class="empty-state">
         <p>Aucun artiste trouvé.</p>
         <span>Cliquez sur "Ajouter un artiste" pour commencer.</span>
       </div>
@@ -26,7 +38,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="a in artists" :key="a.id_artist">
+          <tr v-for="a in filteredArtists" :key="a.id_artist">
             <td>{{ a.nom }} {{ a.prenom }}</td>
             <td>{{ a.pseudo || '-' }}</td>
             <td>{{ a.type_artiste?.nom || '-' }}</td>
@@ -43,13 +55,24 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useArtists } from '../../Composables/artistes';
 
 const { artists, getAllArtists, deleteArtist } = useArtists();
 const loading = ref(true);
 const router = useRouter();
+const inputArtist = ref('');
+
+const filteredArtists = computed(() => {
+  if (!inputArtist.value) return artists.value;
+  const query = inputArtist.value.toLowerCase();
+  return artists.value.filter(a => 
+    a.nom.toLowerCase().includes(query) || 
+    a.prenom.toLowerCase().includes(query) || 
+    (a.pseudo && a.pseudo.toLowerCase().includes(query))
+  );
+});
 
 const redirectCreate = () => {
   router.push('/creation');
@@ -204,5 +227,41 @@ async function deleteOne(id: number) {
 .delete-btn:hover {
   background-color: #fef2f2;
   border-color: #fecaca;
+}
+
+.filters-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 300px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.filter-input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
 </style>

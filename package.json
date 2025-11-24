@@ -5,7 +5,8 @@
   "description": "My Electron application description",
   "main": ".vite/build/main.js",
   "prisma": {
-    "schema": "src/main/repositories/prisma/schema.prisma"
+    "schema": "src/main/repositories/prisma/schema.prisma",
+    "seed": "node src/main/repositories/prisma/seed.js"
   },
   "scripts": {
     "start": "electron-forge start",

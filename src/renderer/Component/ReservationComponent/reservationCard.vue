@@ -44,6 +44,7 @@
                 <th>Studio</th>
                 <th>Stack</th>
                 <th>Programmation</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

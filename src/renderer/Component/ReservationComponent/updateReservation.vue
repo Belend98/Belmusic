@@ -6,6 +6,7 @@
                 type="text" 
                 v-model="inputArtist" placeholder="Rechercher un artiste..." @focus="showArtistList = true" 
                 @input="showArtistList = true" 
+
             />
             <ul v-if="showArtistList && filteredArtists.length > 0" class="suggestions-list">
                 <li 
@@ -229,6 +230,7 @@ async function onSubmit() {
         alert(msg);
     }
 }
+
 </script>
 
 <style scoped>
