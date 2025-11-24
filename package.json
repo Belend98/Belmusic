@@ -6,7 +6,7 @@
   "main": ".vite/build/main.js",
   "prisma": {
     "schema": "src/main/repositories/prisma/schema.prisma",
-    "seed": "node src/main/repositories/prisma/seed.js"
+    "seed": "ts-node src/main/repositories/prisma/seed.ts"
   },
   "scripts": {
     "start": "electron-forge start",
@@ -40,7 +40,8 @@
     "eslint-plugin-import": "^2.32.0",
     "prisma": "^6.17.1",
     "typescript": "~5.9.3",
-    "vite": "^7.1.10"
+    "vite": "^7.1.10",
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
     "@prisma/adapter-mariadb": "^6.18.0",

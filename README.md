@@ -23,7 +23,7 @@ Avant de commencer, les prérequis suivants sont nécessaire :
 *   Ajoutez une variable d'environnement avec les identifiants de la base de données.
     *   Format : `DATABASE_URL="mysql://UTILISATEUR:MOT_DE_PASSE@HOTE:PORT/NOM_DE_LA_BASE"`
     *   Exemple : `DATABASE_URL="mysql://root:root@localhost:3306/belmusic"`
-*   Faites une migration (créer la base de données à partir du schéma Prisma) en utilisant la commande suivante : `npx prisma migrate dev --name init`
+*   Faites une migration (créer la base de données à partir du schéma Prisma) en utilisant la commande suivante : `npx prisma migrate reset`
 
 ## Lancement du projet
 
