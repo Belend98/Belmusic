@@ -22,8 +22,9 @@ Avant de commencer, les prérequis suivants sont nécessaire :
     *   Sur VS Code : à la racine du projet, faites un clic droit "Nouveau fichier" puis entrez le nom `.env`.
 *   Ajoutez une variable d'environnement avec les identifiants de la base de données.
     *   Format : `DATABASE_URL="mysql://UTILISATEUR:MOT_DE_PASSE@HOTE:PORT/NOM_DE_LA_BASE"`
-    *   Exemple : `DATABASE_URL="mysql://root:root@localhost:3306/belmusic"`
-*   Faites une migration (créer la base de données à partir du schéma Prisma) en utilisant la commande suivante : `npx prisma migrate reset`
+    *   Exemple : `DATABASE_URL="mysql://admin:admin@localhost:3306/belmusic"`
+*   Faites une migration (créer la base de données à partir du schéma Prisma) en utilisant la commande suivante : `npx prisma migrate reset`. Cette commande genere un client et ajoute des données pour tester l'application. 
+
 
 ## Lancement du projet
 
