@@ -1,5 +1,4 @@
-
-SET FOREIGN_KEY_CHECKS = 0;
+select * from type_artiste;
 
 INSERT INTO `type_artiste` (`Id_type_artiste`, `nom_type_artiste`) VALUES
 (1, 'Chanteur '),
@@ -20,4 +19,4 @@ INSERT INTO `artiste` (`Id_artiste`, `Nom`, `Prénom`, `Téléphone`, `Email`, `
 (1, 'Dupont', 'Jean', '0487956325', 'jean.dupont@example.com', 1, 'jdup'),
 (2, 'Marc', 'Ruffo', '0459768225', 'Marc.Ruffo@example.com', 3, 'Le M');
 
-SET FOREIGN_KEY_CHECKS = 1;
+
