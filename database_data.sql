@@ -1,4 +1,3 @@
-select * from type_artiste;
 
 INSERT INTO `type_artiste` (`Id_type_artiste`, `nom_type_artiste`) VALUES
 (1, 'Chanteur '),
